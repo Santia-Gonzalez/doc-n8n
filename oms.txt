@@ -1,0 +1,82 @@
+I. INTRODUCCIÓN
+Omni.pro se establece como una empresa pionera en transformación digital y soluciones omnicanal, orientada a integrar de forma perfecta el comercio electrónico y la logística. Su propuesta se centra en la capacidad de “romper barreras” y simplificar procesos complejos para impulsar el éxito empresarial. Con un enfoque disruptivo y orientado a la innovación, Omni.pro se posiciona como aliado estratégico para empresas que desean transformar digitalmente sus operaciones y mejorar la experiencia del cliente.
+
+II. MISIÓN Y VISIÓN
+Misión:
+
+Crear y potenciar experiencias digitales integrales que impulsen el crecimiento y la competitividad de sus clientes.
+Transformar procesos tradicionales en estrategias digitales efectivas, facilitando la conexión entre diferentes canales de comunicación y comercio.
+Visión:
+
+Romper con la complejidad, adoptando un mindset que pase de lo complejo a lo simple.
+Liderar una revolución digital basada en soluciones innovadoras, que generen impacto en el mercado y ofrezcan resultados medibles.
+Convertirse en el referente en transformación digital en América Latina, consolidando alianzas estratégicas con grandes marcas y tecnologías de vanguardia (como Adobe Experience Cloud).
+III. SERVICIOS Y SOLUCIONES TECNOLÓGICAS
+Omni.pro ofrece una amplia gama de servicios orientados a la transformación digital. Entre los principales se encuentran:
+
+Soluciones de Customer Experience y Marketing Digital:
+
+Implementación de Adobe Real-Time CDP, Adobe Journey Optimizer y Adobe Experience Manager, que permiten centralizar y gestionar de manera dinámica el contenido digital y la experiencia del cliente en tiempo real.
+Uso de Adobe Analytics y Adobe Target para optimizar campañas y personalizar la comunicación, garantizando un mensaje coherente en todos los canales.
+Comercio Electrónico y Estrategias Omnicanal:
+
+Integración de Adobe Commerce y Marketo Engage para el desarrollo de plataformas de e-commerce que mejoran la experiencia de compra y fomentan la fidelización del cliente.
+Diseño e implementación de estrategias omnicanal que conectan canales digitales con operaciones físicas, asegurando una experiencia fluida y consistente.
+Consultoría y Desarrollo Personalizado:
+
+Servicios de consultoría estratégica que identifican oportunidades de mejora en la transformación digital.
+Desarrollo de soluciones a medida, adaptadas a las necesidades específicas de cada cliente, y soporte técnico integral que garantiza la continuidad y evolución de los proyectos.
+IV. CASOS DE ÉXITO
+La efectividad de las soluciones de Omni.pro se refleja en numerosos casos de éxito, donde se evidencian mejoras sustanciales en la experiencia del cliente y en la eficiencia operativa. Entre los más destacados se encuentran:
+
+Terpel:
+Implementación de soluciones innovadoras en el sector energético, permitiendo a la empresa liderar la transformación digital y mejorar significativamente la experiencia de sus clientes en un mercado altamente competitivo.
+
+Global Bank:
+Desarrollo de un ecosistema de fidelización que mejora la interacción y retención de clientes, posicionando al banco como líder en servicios digitales personalizados.
+
+Steven’s, Monge, Alpina y MAVI:
+Proyectos realizados en diversos sectores, tales como retail y alimentación, que han permitido la digitalización de procesos internos y la creación de experiencias de usuario más intuitivas y efectivas.
+
+Cada uno de estos proyectos es fruto de un enfoque personalizado que combina consultoría estratégica, desarrollo tecnológico y un profundo entendimiento de las necesidades del mercado.
+
+V. CLIENTES Y SECTORES
+Omni.pro atiende a una amplia variedad de sectores, lo que evidencia su capacidad de adaptación y versatilidad en la implementación de soluciones digitales. Entre los principales sectores se encuentran:
+
+Consumer Packaged Goods (CPG) y Retail:
+Empresas que buscan modernizar sus procesos de venta, optimizar la experiencia en puntos de contacto y adaptarse a las tendencias digitales.
+
+Sector Financiero (FSI):
+Instituciones que requieren robustas estrategias de fidelización y servicios digitales, utilizando plataformas avanzadas para mejorar la comunicación y retención de clientes.
+
+Healthcare y Automotriz:
+Proyectos enfocados en mejorar la calidad del servicio y la experiencia del usuario en entornos altamente regulados y competitivos.
+
+Telecomunicaciones, Moda y otros:
+Sectores que demandan estrategias omnicanal integrales, permitiendo una presencia digital coherente y atractiva.
+
+Entre los clientes que respaldan el liderazgo de Omni.pro se encuentran marcas reconocidas como Avianca, Farmacias del Ahorro, BanCoppel, Holcim, KIA, CASIO, Grupo Monge, Nike, Terpel, Global Bank, entre muchos otros. Esta diversa cartera no solo demuestra la eficacia de sus soluciones, sino que también refuerza su capacidad para adaptarse a distintos mercados y contextos.
+
+VI. PRESENCIA GLOBAL Y SOPORTE
+Omni.pro cuenta con una fuerte presencia internacional, lo que le permite brindar atención personalizada y soporte continuo a nivel global. Las oficinas estratégicamente ubicadas en ciudades clave —como Miami, Panamá, Bogotá, México, Barcelona y Santiago— facilitan la implementación y el seguimiento de proyectos en diversas regiones. Este alcance global se complementa con un enfoque local que garantiza una atención específica a las necesidades de cada cliente.
+
+VII. ESTRATEGIAS DE MERCADO Y VALOR AGREGADO
+Omni.pro no solo implementa soluciones digitales, sino que también actúa como socio estratégico en la transformación del negocio. Entre las estrategias clave se destacan:
+
+Fidelización del Cliente:
+Mediante el uso de herramientas avanzadas y plataformas de análisis, la empresa diseña estrategias que no solo atraen nuevos clientes, sino que también fortalecen la retención y fidelización de los existentes.
+
+Optimización de la Experiencia Digital:
+La integración de soluciones omnicanal permite una interacción fluida y personalizada en cada punto de contacto, asegurando que cada experiencia sea coherente y de alta calidad.
+
+Soporte y Mantenimiento Continuo:
+La capacidad para ofrecer un servicio post-implementación robusto garantiza la continuidad y evolución de las soluciones digitales, adaptándolas a las cambiantes condiciones del mercado.
+
+Link de repositorios más importantes:
+https://github.com/Omnipro-Solutions/saas-app-oms/tree/master/omni_pro_oms (Libreria saas-app-oms)
+https://github.com/Omnipro-Solutions/saas-app-base/tree/master/omni_pro_base (Libreria saas-app-base)
+La selección activa contiene dos direcciones URL que apuntan a directorios específicos dentro de los repositorios de GitHub. Estos repositorios están alojados bajo la organización "Omnipro-Solutions" en GitHub. Cada URL va seguida de una descripción entre paréntesis, que indica el propósito o el contenido del directorio.
+
+La primera URL, https://github.com/Omnipro-Solutions/saas-app-oms/tree/master/omni_pro_oms, dirige al directorio omni_pro_oms dentro del repositorio saas-app-oms. La descripción "Libreria saas-app-oms" sugiere que este directorio contiene una biblioteca o un conjunto de recursos relacionados con el proyecto "saas-app-oms".
+La segunda URL, https://github.com/Omnipro-Solutions/saas-app-base/tree/master/omni_pro_base, apunta al directorio omni_pro_base dentro del repositorio saas-app-base. La descripción "Librería saas-app-base" indica que este directorio contiene una biblioteca o recursos para el proyecto "saas-app-base".
+Es probable que estas URL se utilicen para hacer referencia a partes específicas del código base, lo que facilita las interaciones entre equipor para el trabajo en equipo.
