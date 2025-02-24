@@ -50,6 +50,8 @@ Directory structure:
             ├── __init__.py
             └── users.py
 
+# LIBRERIA UTILIZADA DENTRO DE LOS PROYECTOS DE OMS Y SUS MICROSERVICIOS
+## nombre repo: saas-app-oms, link: (https://github.com/Omnipro-Solutions/saas-app-base)
 ================================================
 File: README.md
 ================================================
