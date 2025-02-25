@@ -1,109 +1,67 @@
-A continuación, se presenta un `README.md` detallado para el proyecto `saas-lib-redis`. Este archivo proporciona una descripción clara y concisa del propósito del software, instrucciones de instalación, configuración inicial y explicaciones sobre la estructura del proyecto. Se incluye toda su funcionalidad y las herramientas adicionales utilizadas dentro del mismo.
+The provided codebase outlines a comprehensive system for managing and executing tasks within tenants, leveraging Django Rest Framework (DRF) for API endpoints, OAuth2 authentication, Celery for task scheduling and execution, and custom models and serializers. Here's an overview of the key components:
 
----
+### Key Components
 
-# saas-lib-redis
+1. **Models**:
+    - `Tenant`: Represents a tenant with details like name, description, client ID, secret, base URL, and token management.
+    - `Operation`: Defines operations that can be performed within tenants.
+    - `OperationType`: Categorizes different types of operations.
+    - `Task`: Stores task information such as source data, destination data, status, execution time, etc.
+    - `TenantOperation`: A bridge between tenants and their specific operation configurations.
 
-**Librería para gestión REDIS OMS V3**
+2. **Serializers**:
+    - Serializers for each model to facilitate JSON serialization for API endpoints (`ConfigSerializer`, `OperationSerializer`, `TaskSerializer`, etc.).
 
-## Objetivos
-La librería `saas-lib-redis` proporciona una capa de abstracción sobre Redis que facilita la gestión y manipulación de datos en un entorno empresarial SaaS (Software as a Service).
+3. **API Views (ViewSet)**:
+    - Each model has a corresponding viewset that provides CRUD operations via the API.
+    - Permissions are managed using OAuth2 scopes.
 
-### Características Principales:
-- **Interfaz para gestionar conexiones Redis.**
-- **Administrador de recursos JSON en Redis.**
-- **Configuraciones específicas para servicios AWS como Cognito, S3 y otros.**
-- **Acceso seguro a datos sensibles usando Redis.**
+4. **Operations**:
+    - Contains logic to create and manage tasks, such as creating tasks from request data and handling task lifecycle.
+    - `TenantOperation`: A helper class for fetching tenant-specific operation configurations.
+    
+5. **Tasks (Background Jobs)**:
+    - `DeleteTasks` is a Celery task responsible for periodically cleaning up old tasks based on configuration rules.
 
-## Instalación
+6. **Permissions**:
+    - Uses OAuth2 tokens with specific scopes to control access to API endpoints.
 
-1. Asegúrate de tener Python 3.9 o superior instalado en tu entorno.
-2. Clona el repositorio:
-   ```bash
-   git clone https://github.com/Omnipro-Solutions/saas-lib-redis.git
-   cd saas-lib-redis
-   ```
-3. Instala las dependencias del proyecto mediante pip:
-   ```bash
-   pip install -r requirements.txt
-   ```
+7. **Custom Utilities and Clients**:
+    - `ApiClient`: A base class for making HTTP requests using tenant-specific configurations.
+    - `TaskApi`: Extends `ApiClient` specifically for task-related operations, handling request-response cycles and updating task status in the database.
 
-## Inicialización y Uso
+### Code Organization
 
-### Configuración Básica:
+- **Models**: Defined under `omni_pro_oms.models`.
+- **Serializers**: Located in `omni_pro_oms.serializers`, each corresponding to a model.
+- **Views (API Endpoints)**: In `omni_pro_oms.views`, providing access via RESTful API endpoints.
+- **Operations/Task Management**: Found in `omni_pro_oms.operations` and `omni_pro_oms.task`.
+- **Permissions**: Defined under `omni_pro_oms.permissions`.
 
-1. Importa el módulo principal `omni_pro_redis.redis` en tu script o aplicación.
-2. Crea una instancia de `RedisManager`, proporcionando la configuración necesaria para conectarte a Redis.
+### Key Features
 
-```python
-from omni_pro_redis import redis
+1. **OAuth2 Authentication**:
+    - Utilizes OAuth2 tokens with read-write scopes to secure API endpoints.
 
-# Ejemplo de inicialización con Redis local
-redis_manager = redis.RedisManager(
-    host="localhost",
-    port=6379,
-    db=0,
-    redis_ssl=False  # Indica si la conexión a Redis es segura (SSL)
-)
+2. **Task Management**:
+    - Supports creating tasks from requests.
+    - Manages task lifecycle including updates based on request-response cycles.
+    
+3. **Background Task Cleaning**:
+    - Periodic Celery task for cleaning up old tasks based on configurable rules (e.g., success vs other states, retention periods).
 
-# Usar la instancia para obtener y establecer datos en Redis.
-```
+4. **Token Management**:
+    - Tenant tokens are managed within the `Tenant` model to ensure proper authentication and authorization.
 
-### Uso de Métodos:
+5. **Custom API Client and Task Handling**:
+    - Provides a robust mechanism for handling HTTP requests and responses with custom task management logic.
 
-- **Obtener Datos JSON:** `get_json(key, *args, no_escape=False)`
+### Example Usage
 
-```python
-data = redis_manager.get_json('my_key')
-print(data)
-```
+To use this system, you would typically:
 
-- **Establecer Datos JSON:** `set_json(key, json_obj)`
-   
-```python
-redis_manager.set_json('new_key', {'field': 'value'})
-```
+1. Define tenants, operations, and operation types.
+2. Use the provided endpoints to create tasks based on tenant-specific configurations.
+3. Configure Celery to periodically run background jobs like `DeleteTasks` for cleanup purposes.
 
-- **Cambiar Base de Datos:** `change_db(new_db)`
-
-```python
-redis_manager.change_db(1)
-print(redis_manager.get_connection().db)
-```
-
-### Configuraciones Específicas:
-
-Para servicios como AWS Cognito, S3 y MongoDB, puedes obtener configuraciones específicas utilizando métodos proporcionados.
-
-#### Ejemplo: Obtener Configuración de AWS Cognito
-
-```python
-cognito_config = redis_manager.get_aws_cognito_config('service_id', 'tenant_code')
-print(cognito_config)
-```
-
-## Estructura del Proyecto
-
-- **`README.md`:** Documentación principal del proyecto.
-- **`LICENSE`:** Licencia MIT del software.
-- **`requirements.txt`:** Dependencias necesarias para el funcionamiento del proyecto.
-- **`setup.py`:** Script de instalación y configuración del paquete.
-- **`omni_pro_redis/redis.py`:** Contiene la implementación principal de `RedisManager`.
-  - **Clases:**
-    - `RedisConnection:` Maneja conexiones a Redis.
-    - `FakeRedisServer:` Implementa un servidor falso para pruebas unitarias.
-    - `RedisManager:` Proporciona métodos y funciones para gestionar datos en Redis.
-
-## Herramientas Adicionales
-
-- **Hiredis:** Un cliente de Redis escrito en C++ para mejorar el rendimiento de las operaciones de bajo nivel.
-- **Fakeredis:** Una simulación de Redis escrita en Python, útil para pruebas unitarias y desarrollo local sin depender de un servidor Redis real.
-- **Omni-pro-base:** Un conjunto de utilidades y funciones básicas utilizadas por `saas-lib-redis`.
-
-## Contribución
-
-No se aceptan contribuciones al proyecto desde este archivo README. Si necesitas colaborar, por favor contáctate con los desarrolladores del equipo OMNI.PRO.
-
----
-
-Este README.md proporciona una descripción completa de la funcionalidad y estructura del proyecto `saas-lib-redis`, asegurando que el usuario pueda entender fácilmente cómo funciona la librería y qué herramientas adicionales son necesarias para su uso.
+This framework is well-suited for scenarios where multiple tenants need to manage a wide variety of operational tasks with detailed tracking and periodic maintenance.
