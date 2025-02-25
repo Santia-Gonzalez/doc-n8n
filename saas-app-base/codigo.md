@@ -1,14 +1,60 @@
-
-# LIBRERIA UTILIZADA DENTRO DE LOS PROYECTOS DE OMS Y SUS MICROSERVICIOS
-## nombre repo: saas-app-oms, link: (https://github.com/Omnipro-Solutions/saas-app-base)
-
+Directory structure:
+└── omnipro-solutions-saas-app-base/
+    ├── README.md
+    ├── LICENSE
+    ├── MANIFEST.in
+    ├── make_migrations.py
+    ├── requirements.txt
+    ├── setup.py
+    └── omni_pro_base/
+        ├── __init__.py
+        ├── apps.py
+        ├── backends.py
+        ├── http_request.py
+        ├── urls.py
+        ├── util.py
+        ├── admin/
+        │   ├── __init__.py
+        │   ├── auth.py
+        │   ├── base_admin.py
+        │   └── users.py
+        ├── forms/
+        │   ├── __init__.py
+        │   └── users.py
+        ├── migrations/
+        │   ├── 0001_initial.py
+        │   └── __init__.py
+        ├── models/
+        │   ├── __init__.py
+        │   ├── base_model.py
+        │   └── users.py
+        ├── serializers/
+        │   ├── __init__.py
+        │   └── users.py
+        ├── settings/
+        │   ├── __init__.py
+        │   ├── base.py
+        │   ├── local.py
+        │   └── production.py
+        ├── static/
+        │   └── vendor/
+        │       └── omni/
+        │           ├── css/
+        │           │   └── main.css
+        │           ├── img/
+        │           └── js/
+        │               └── main.js
+        ├── tests/
+        │   └── __init__.py
+        └── views/
+            ├── __init__.py
+            └── users.py
 
 ================================================
 File: README.md
 ================================================
 # saas-app-base
 Librería del modulo base para app de conexión a OMS
-
 
 ================================================
 File: LICENSE
@@ -21,12 +67,10 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
 ================================================
 File: MANIFEST.in
 ================================================
 recursive-include omni_pro_base/static *
-
 
 ================================================
 File: make_migrations.py
@@ -105,9 +149,6 @@ if __name__ == "__main__":
 ================================================
 File: requirements.txt
 ================================================
-
-# LIBRERIAS NECESARIAS PARA SU USO CORRECTO
-
 setuptools==65.5.1
 Django==5.0
 environs==9.5.0
@@ -1279,71 +1320,4 @@ class UserLoginViewSet(viewsets.GenericViewSet):
             permissions = [IsAuthenticated]
         return [permission() for permission in permissions]
 
-
-================================================
-File: .github/workflows/release-library-pypi.yml
-================================================
-name: Generate Python Library & Publish on PYPI
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  deploy-patch:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout branch
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip build
-
-      - name: Get next version
-        id: generate_release_tag
-        uses: phish108/autotag-action@1.1.53
-        with:
-          github-token: ${{ secrets.TOKEN_GITHUB}}
-          with-v: "true"
-          bump: patch
-
-      - name: Update version in setup.py
-        run: sed -i 's/VERSION = "0.0.0"/VERSION = "${{ steps.generate_release_tag.outputs.new-tag }}"/g' setup.py
-
-      - name: Build package
-        run: python -m build
-
-      - name: Check Output Parameters
-        run: |
-          echo "Got tag name ${{ steps.generate_release_tag.outputs.new-tag }}"
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        with:
-          tag_name: ${{ steps.generate_release_tag.outputs.new-tag }}
-          release_name: Release ${{ steps.generate_release_tag.outputs.new-tag }}
-
-      - name: Upload Release Assets
-        id: upload-release-assets
-        uses: dwenegar/upload-release-assets@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        with:
-          release_id: ${{ steps.create_release.outputs.id }}
-          assets_path: dist/
-
-      - name: Publish package to Custom PYPI
-        run: |
-          pip install twine
-          twine upload --repository-url https://pypi.omni.pro/root/omni-pro-app/ -u ${{ secrets.DEVPI_USER }} -p ${{ secrets.DEVPI_PASSWORD }} dist/*
 
