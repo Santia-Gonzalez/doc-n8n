@@ -1,152 +1,171 @@
-## Documentación de saas-app-base
+Aquí tienes una documentación detallada para el repositorio "saas-app-base" de OMNIPRO Solutions, estructurada según el formato solicitado:
 
-Este repositorio contiene una base para aplicaciones SaaS (Software como Servicio) que se integran con OMS (probablemente Omnipro Management System). Proporciona funcionalidades comunes y módulos reutilizables necesarios para desarrollar aplicaciones SaaS, como la autenticación de usuarios, manejo de migraciones de bases de datos, serialización de datos y configuración.
+<a id="readme-top"></a>
 
-### 1. Propósito principal del repositorio
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Issues][issues-shield]][issues-url]
+[![project_license][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-El propósito principal del repositorio "saas-app-base" es actuar como una biblioteca base para construir aplicaciones SaaS que se integren con OMS. Esta biblioteca proporciona funcionalidades comunes y módulos reutilizables necesarios para desarrollar aplicaciones SaaS, como la autenticación de usuarios, manejo de migraciones de bases de datos, serialización de datos y configuración.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-### 2. Archivos y carpetas principales, y su función
+<h3 align="center">saas-app-base</h3>
 
-Aquí tienes una descripción de los archivos y carpetas más importantes en el repositorio:
+  <p align="center">
+    Biblioteca base para aplicaciones SaaS conectadas a OMS.
+    <br />
+    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Explore los documentos »</strong></a>
+    <br />
+    <br />
+    &middot;
+    <a href="#">Reportar un error</a>
+    &middot;
+    <a href="#">Solicitar una característica</a>
+  </p>
+</div>
 
-**Archivos principales:**
-- **README.md**: Documentación inicial del proyecto que explica su propósito, cómo instalarlo y usarlo.
-- **LICENSE**: Licencia MIT que define los términos de uso y distribución del software.
-- **MANIFEST.in**: Lista de archivos y directorios que se incluirán al empaquetar el paquete Python.
-- **make_migrations.py**: Script para generar migraciones de bases de datos para la aplicación Django.
-- **requirements.txt**: Lista de dependencias necesarias para ejecutar el proyecto, incluyendo versiones específicas de cada librería.
-- **setup.py**: Archivo que define los metadatos del paquete Python y las instrucciones para instalarlo.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Tabla de Contenidos</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">Acerca del Proyecto</a>
+      <ul>
+        <li><a href="#built-with">Construido con</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Empezando</a>
+      <ul>
+        <li><a href="#prerequisites">Requisitos previos</a></li>
+        <li><a href="#installation">Instalación</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Uso</a></li>
+    <li><a href="#roadmap">Ruta de desarrollo</a></li>
+    <li><a href="#contributing">Contribuyendo</a></li>
+    <li><a href="#license">Licencia</a></li>
+    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#acknowledgments">Agradecimientos</a></li>
+  </ol>
+</details>
 
-**Carpetas principales:**
-- **omni_pro_base/**: Contiene la implementación principal de la aplicación SaaS.
-    - **apps.py**: Configuración de Django para el módulo `omni_pro_base`.
-    - **backends.py**: Implementación de autenticadores personalizados.
-    - **http_request.py**: Clase auxiliar para hacer llamadas HTTP a servicios externos.
-    - **urls.py**: Configuración de las URLs de la aplicación.
-    - **util.py**: Funciones útiles como `nested()` para manipular datos complejos.
-    - **admin/**: Configuraciones y clases admin para Django admin panel.
-        - **auth.py**: Modelo admin para permisos.
-        - **base_admin.py**: Clases base para admin de Django.
-        - **users.py**: Modelo admin para el modelo `User`.
-    - **forms/**: Formularios personalizados para manipulación de datos.
-        - **users.py**: Formularios para creación y edición de usuarios.
-    - **migrations/**: Migraciones generadas para la base de datos.
-    - **models/**: Modelos del sistema, como el modelo `User`.
-        - **base_model.py**: Modelo abstracto que define campos comunes.
-        - **users.py**: Modelo concreto para representar usuarios en la aplicación.
-    - **serializers/**: Serializadores para convertir datos entre formatos (JSON, XML).
-        - **users.py**: Serializadores para el modelo `User`.
-    - **settings/**: Configuración del proyecto Django.
-        - **base.py**: Configuración base que se hereda en otros entornos.
-        - **local.py**: Configuración adicional para entornos de desarrollo.
-        - **production.py**: Configuración específica para entornos de producción.
-    - **static/**: Archivos estáticos como CSS y JavaScript.
-        - **vendor/omni/**: Recursos personalizados para el tema del admin panel.
-    - **tests/**: Pruebas unitarias y funcionales.
-    - **views/**: Vistas RESTful para la API.
-        - **users.py**: Vistas para manejar usuarios y autenticación.
+<!-- ABOUT THE PROJECT -->
+## Acerca del Proyecto
 
-### 3. Estructura del código. Descripción general de la arquitectura
+Este es un repositorio que proporciona una base para aplicaciones SaaS conectadas a OMS. Ofrece funcionalidades comunes como autenticación, manejo de migraciones y serialización de datos.
 
-La arquitectura del código sigue un diseño modular y orientado a objetos, adaptándose a las convenciones de Django:
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-1. **Nivel superior**: El directorio `omni_pro_base/` contiene los archivos principales como `apps.py`, `backends.py`, etc.
-2. **Aplicación principal**:
-   - **Modelos**: Se encuentran en `models/`, definiendo entidades del sistema (como `User`).
-   - **Vistas**: En `views/`, implementan las APIs REST y las páginas HTML.
-   - **Formularios**: En `forms/`, validan y manipulan datos de entrada.
-   - **Serializadores**: En `serializers/`, convierten modelos en estructuras serializables (JSON/XML).
-3. **Administración**:
-   - Configuraciones específicas para el panel admin de Django, con clases admin personalizadas.
-4. **Autenticación y seguridad**:
-   - Implementa dos backends de autenticación: uno basado en configuración local y otro que interactúa con un servicio externo.
-5. **Configuración**:
-   - Configuraciones específicas para entornos de desarrollo, producción y base.
+### Construido con
 
-### 4. Dependencias y requerimientos necesarios para ejecutar el proyecto
+* [![Django][Django]][Django-url]
+* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
 
-Las dependencias principales se encuentran en `requirements.txt`, incluyendo:
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-- **Django**: Framework web.
-- **Django REST framework**: Para construir APIs RESTful.
-- **Jazzmin**: Tema personalizado para Django admin.
-- **OAuth2 toolkit**: Para implementar autenticación OAuth2.
-- **Celery**: Para procesamiento asincrónico de tareas.
-- **Redis**: Cache y cola de mensajes.
-- **PostgreSQL**: Manejador de bases de datos con pool de conexiones.
+<!-- GETTING STARTED -->
+## Empezando
 
-Recomendaciones:
-- Configurar un entorno virtual para aislar dependencias.
-- Instalar las dependencias usando `pip install -r requirements.txt`.
+Sigue estos pasos para configurar el proyecto localmente.
 
-### 5. Pasos a seguir para instalar y configurar el entorno de desarrollo
+### Requisitos previos
 
-Para instalar y configurar el entorno de desarrollo, sigue estos pasos:
+Necesitarás tener instalado:
+- Python 3.8 o superior
+- PostgreSQL
 
-1. **Clonar el repositorio**:
-   ```bash
+### Instalación
+
+1. Clona el repositorio
+   ```sh
    git clone https://github.com/Omnipro-Solutions/saas-app-base.git
    cd saas-app-base
    ```
-
-2. **Crear un entorno virtual (recomendado)**:
-   ```bash
+2. Crea un entorno virtual y activalo:
+   ```sh
    python -m venv venv
    source venv/bin/activate  # En Linux/Mac
    .\venv\Scripts\activate    # En Windows
    ```
-
-3. **Instalar dependencias**:
-   ```bash
+3. Instala las dependencias:
+   ```sh
    pip install -r requirements.txt
    ```
+4. Configura el proyecto copiando `settings/base.py` y ajustando los valores necesarios en `.env`.
 
-4. **Configurar el proyecto**:
-   - Copia `settings/base.py` y configura los valores necesarios en `.env`.
-   - Asegúrate de que Django esté correctamente configurado.
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-5. **Migrar la base de datos**:
-   ```bash
-   python manage.py makemigrations omni_pro_base
-   python manage.py migrate
-   ```
+<!-- USAGE EXAMPLES -->
+## Uso
 
-6. **Iniciar el servidor de desarrollo**:
-   ```bash
-   python manage.py runserver
-   ```
+Este repositorio proporciona una base para desarrollar aplicaciones SaaS. Puedes ver ejemplos y documentación adicional en [Documentación Oficial](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core).
 
-### 6. Áreas de mejora o extensiones futuras sugeridas por el autor
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-Basándose en los comentarios y observaciones en los archivos, aquí están algunas áreas de mejora o extensiones futuras:
+<!-- ROADMAP -->
+## Ruta de desarrollo
 
-1. **Cache**:
-   - Implementar un sistema de cache más robusto usando Redis.
-   - Configurar caches específicos para vistas y modelos.
+- [ ] Implementar un sistema de cache más robusto.
+- [ ] Mejorar la seguridad con validación de IPs permitidas.
+- [ ] Configurar el proyecto para usar Docker y Kubernetes.
 
-2. **Seguridad**:
-   - Añadir validación de IPs permitidas con `ALLOWED_CIDR_NETS`.
-   - Configurar un WAF (Web Application Firewall) en entornos productivos.
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
-3. **Despliegue**:
-   - Configurar el proyecto para usar Docker y Kubernetes.
-   - Implementar monitoreo y logs con herramientas como Prometheus y Grafana.
+<!-- CONTRIBUTING -->
+## Contribuyendo
 
-4. **Testing**:
-   - Añadir más pruebas unitarias e integrativas.
-   - Utilizar coverage para medir la cobertura de tests.
+Las contribuciones son lo que hacen a la comunidad de código abierto un lugar tan increíble para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
 
-5. **Documentación**:
-   - Expandir la documentación técnica e incluir ejemplos detallados.
-   - Crear tutoriales para diferentes funcionalidades.
+Si tienes una sugerencia que haría esto mejor, por favor forka el repositorio y crea una solicitud de extracción. También puedes simplemente abrir un problema con la etiqueta "mejora".
 
-6. **Tareas en segundo plano**:
-   - Implementar tareas programadas con Celery y Django Beat.
-   - Configurar un sistema de priorización de tareas.
+1. Fork del Proyecto
+2. Crea tu rama de característica (`git checkout -b feature/AmazingFeature`)
+3. Haz tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Empuja a la rama (`git push origin feature/AmazingFeature`)
+5. Abre una solicitud de extracción
 
-7. **Soporte multilingüe**:
-   - Añadir soporte para múltiples idiomas y localizaciones.
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
+### Principales contribuyentes:
 
+<a href="https://github.com/Omnipro-Solutions/saas-app-base/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Omnipro-Solutions/saas-app-base" alt="contrib.rocks image" />
+</a>
 
+<!-- LICENSE -->
+## Licencia
+
+Distribuido bajo la licencia MIT. Consulta `LICENSE.txt` para más información.
+
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+## Agradecimientos
+
+* [Documentación Oficial](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)
+* Comunidad de Django
+* OMNIPRO Solutions
+
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[contributors-url]: https://github.com/Omnipro-Solutions/saas-app-base/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[forks-url]: https://github.com/Omnipro-Solutions/saas-app-base/network/members
+[issues-shield]: https://img.shields.io/github/issues/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[issues-url]: https://github.com/Omnipro-Solutions/saas-app-base/issues
+[license-shield]: https://img.shields.io/github/license/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[license-url]: https://github.com/Omnipro-Solutions/saas-app-base/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/omnipro-solutions/
+[Django]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=djangoproject&logoColor=white
+[Django-url]: https://www.djangoproject.com/
+[PostgreSQL]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+[PostgreSQL-url]: https://www.postgresql.org/
+
+Esta documentación proporciona una visión general clara y estructurada del repositorio "saas-app-base", facilitando la comprensión y colaboración en el proyecto.
