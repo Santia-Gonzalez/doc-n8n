@@ -1,6 +1,4 @@
-Aquí tienes una plantilla de documentación detallada basada en el repositorio `omnipro-solutions-saas-app-base`, adaptada al formato solicitado:
-
-<a id="readme-top"></a>
+### <a id="readme-top">Repositorio `omnipro-solutions-saas-app-base`</a>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -12,166 +10,146 @@ Aquí tienes una plantilla de documentación detallada basada en el repositorio 
 <br />
 <div align="center">
 
-<h3 align="center">Biblioteca Base para Aplicaciones SaaS con Django y OMS</h3>
+<h3 align="center">omnipro-solutions-saas-app-base</h3>
 
   <p align="center">
-    Proporciona una biblioteca base para la creación de aplicaciones Software como Servicio (SaaS) que se integran con Omnipro Solutions. Facilita la gestión de usuarios, autenticación, administración de bases de datos y más.
+    Este repositorio proporciona una base para aplicaciones Django que se conectan a OMS (On-Demand Management System). Es un módulo reutilizable que incluye funcionalidades comunes y configuraciones necesarias para proyectos de este tipo, como autenticación, serialización de datos, manejo de usuarios, etc.
     <br />
-    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Explora los documentos »</strong></a>
+    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Explora la documentación »</strong></a>
     <br />
     <br />
     &middot;
-    <a href="#">Reportar Bug</a>
+    <a href="#">Reportar un error</a>
     &middot;
-    <a href="#">Solicitar Característica</a>
+    <a href="#">Solicitar una nueva funcionalidad</a>
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Tabla de Contenidos</summary>
+  <summary>Tabla de contenidos</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Acerca del Proyecto</a>
+      <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
-        <li><a href="#built-with">Construido con</a></li>
+        <li><a href="#construido-con">Construido con</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Empezando</a>
+      <a href="#cómo-empezar">Cómo empezar</a>
       <ul>
-        <li><a href="#prerequisites">Requisitos Previos</a></li>
-        <li><a href="#installation">Instalación</a></li>
+        <li><a href="#requisitos-previos">Requisitos previos</a></li>
+        <li><a href="#instalación">Instalación</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Uso</a></li>
-    <li><a href="#roadmap">Ruta de Desarrollo</a></li>
-    <li><a href="#contributing">Contribuyendo</a></li>
-    <li><a href="#license">Licencia</a></li>
-    <li><a href="#contact">Contacto</a></li>
-    <li><a href="#acknowledgments">Reconocimientos</a></li>
+    <li><a href="#uso">Uso</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contribuyendo">Contribuyendo</a></li>
+    <li><a href="#licencia">Licencia</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#agradecimientos">Agradecimientos</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## Acerca del Proyecto
+## Sobre el proyecto
 
-Este repositorio es una biblioteca base para aplicaciones SaaS que se conectan a Omnipro Solutions (OMS). Está diseñado para facilitar la creación y gestión de usuarios, autenticación, administración de bases de datos y otros aspectos dentro del contexto de las aplicaciones Django.
+Este repositorio proporciona una base para aplicaciones Django que se conectan a OMS (On-Demand Management System). Es un módulo reutilizable que incluye funcionalidades comunes y configuraciones necesarias para proyectos de este tipo, como autenticación, serialización de datos, manejo de usuarios, etc.
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
 ### Construido con
 
-* [![Django][Django]][Django-url]
-* [![Python][Python]][Python-url]
+* [Django](https://www.djangoproject.com/)
+* [Django REST Framework](http://www.django-rest-framework.org/)
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
 <!-- GETTING STARTED -->
-## Empezando
+## Cómo empezar
 
-Aquí tienes un ejemplo de cómo puedes dar instrucciones para configurar tu proyecto localmente. Para tener una copia local en funcionamiento, sigue estos pasos sencillos.
+Para obtener una copia local del proyecto y ponerlo en marcha, sigue estos pasos:
 
-### Requisitos Previos
+### Requisitos previos
 
-Este es un ejemplo de cómo listar las cosas que necesitas para usar el software y cómo instalarlas:
-
-- Python 3.x
-- Pip (gestor de paquetes)
-- Git
+Este es un ejemplo de cómo listar las dependencias necesarias para usar el software y cómo instalarlas.
 
 ### Instalación
 
-1. Clona el repositorio:
+1. Clona el repositorio
    ```sh
-   git clone https://github.com/tu_usuario/repositorio.git
+   git clone https://github.com/Omnipro-Solutions/saas-app-base.git
    ```
-2. Instala las dependencias necesarias:
+2. Navega al directorio clonado
+   ```sh
+   cd saas-app-base
+   ```
+3. Instala las dependencias necesarias
    ```sh
    pip install -r requirements.txt
    ```
-3. Configura tus variables de entorno con un archivo `.env` que incluya configuraciones como `DATABASE_URL`, `SECRET_KEY`, etc.
-4. Ejecuta migraciones para establecer la base de datos:
+4. Configura el entorno de desarrollo copiando `omni_pro_base/settings/local.py` y ajustándolo según sea necesario.
+5. Aplica migraciones iniciales
    ```sh
+   python make_migrations.py
    python manage.py migrate
    ```
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-Usa este espacio para mostrar ejemplos útiles de cómo se puede utilizar un proyecto. Capturas adicionales, ejemplos de código y demos funcionan bien en este espacio. También puedes vincular a más recursos.
+Este es un ejemplo de cómo usar el proyecto. Puedes encontrar más ejemplos y documentación en la [documentación](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core).
 
-_Para más ejemplos, por favor refiérase a la [Documentación](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)_
-
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
 <!-- ROADMAP -->
-## Ruta de Desarrollo
+## Roadmap
 
-- [ ] Mejoras en la seguridad
-- [ ] Optimización del rendimiento
-- [ ] Documentación adicional
-    - [ ] Ejemplos de uso más detallados
+* Mejorar la documentación y los comentarios del código.
+* Implementar más pruebas unitarias para asegurar la integridad del sistema.
+* Añadir más configuraciones personalizables en `settings/local.py` y `settings/production.py`.
+* Mejorar la seguridad, por ejemplo, mejorando el manejo de credenciales sensibles y limitando los permisos de usuario.
 
-Ver los [problemas abiertos](#) para una lista completa de características propuestas (y problemas conocidos).
+Véase [aquí](#) para una lista completa de las propuestas de funcionalidades (y conocidos problemas).
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## Contribuyendo
 
-Las contribuciones son lo que hacen a la comunidad open source un lugar tan increíble para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
+Contribuciones son lo que hacen la comunidad open source un lugar tan asombroso para aprender, inspirarse y crear. Cualquier aporte que hagas es **muy apreciado**.
 
-Si tienes una sugerencia que haría esto mejor, por favor forkea el repositorio y crea una solicitud de extracción. También puedes simplemente abrir un problema con la etiqueta "mejora".
-¡No olvides darle al proyecto una estrella! ¡Gracias nuevamente!
+Si tienes una sugerencia que mejore este proyecto, por favor forkea el repositorio e implementa tu sugerencia en un pull request. También puedes simplemente abrir un issue con la etiqueta "enhancement".
+No olvides dar al proyecto una estrella! Gracias de antemano!
 
-1. Fork del Proyecto
-2. Crea tu rama de característica (`git checkout -b feature/AmazingFeature`)
-3. Comitea tus Cambios (`git commit -m 'Añade alguna AmazingFeature'`)
-4. Empuja a la Rama (`git push origin feature/AmazingFeature`)
-5. Abre una Solicitud de Extracción
+1. Forkea el Proyecto
+2. Crea tu ramificación (`git checkout -b feature/AmazingFeature`)
+3. Comitea tus cambios (`git commit -m 'Añade alguna AmazingFeature'`)
+4. Empuja a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
-### Top contribuidores:
+### Top contribuyentes:
 
-<a href="https://github.com/tu_usuario/repositorio/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tu_usuario/repositorio" alt="contrib.rocks image" />
+<a href="https://github.com/Omnipro-Solutions/saas-app-base/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Omnipro-Solutions/saas-app-base" alt="contrib.rocks image" />
 </a>
 
 <!-- LICENSE -->
 ## Licencia
 
-Distribuido bajo la licencia MIT. Consulta `LICENSE.txt` para más información.
+Distribuido bajo la licencia [MIT License](LICENSE.txt). Para más información consulta el archivo `LICENSE`.
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
-## Reconocimientos
+## Agradecimientos
 
-* [Omnipro Solutions](https://omni.pro)
-* [Django Framework](https://www.djangoproject.com)
+* []()
+* []()
+* []()
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/tu_usuario/repositorio.svg?style=for-the-badge
-[contributors-url]: https://github.com/tu_usuario/repositorio/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/tu_usuario/repositorio.svg?style=for-the-badge
-[forks-url]: https://github.com/tu_usuario/repositorio/network/members
-[issues-shield]: https://img.shields.io/github/issues/tu_usuario/repositorio.svg?style=for-the-badge
-[issues-url]: https://github.com/tu_usuario/repositorio/issues
-[license-shield]: https://img.shields.io/github/license/tu_usuario/repositorio.svg?style=for-the-badge
-[license-url]: https://github.com/tu_usuario/repositorio/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/usuario_de_linkedin
-[Django]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=Django&logoColor=white
-[Django-url]: https://www.djangoproject.com/
-[Python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
-[Python-url]: https://www.python.org/
-
-Reemplaza `tu_usuario`, `usuario_de_linkedin` y las URLs de los enlaces con la información pertinente.
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
