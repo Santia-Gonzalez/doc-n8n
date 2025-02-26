@@ -14,10 +14,10 @@ href="https://github.com/omnipro-solutions/saas-app-base.git">
     <img src="https://pngimg.com/uploads/github/github_PNG78.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Base de Código para Aplicaciones SaaS</h3>
+<h3 align="center">OmniPro Solutions SaaS App Base</h3>
 
   <p align="center">
-    Base de código diseñada para aplicaciones SaaS que se conectan con OMS.
+    Biblioteca de módulos base para aplicaciones Django con funcionalidades comunes para proyectos SaaS.
     <br />
     <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Documentación oficial »</strong></a>
     <br />
@@ -36,14 +36,14 @@ href="https://github.com/omnipro-solutions/saas-app-base.git">
     <li>
       <a href="#descripción">Descripción</a>
       <ul>
-        <li><a href="#stack-tecnologico">Stack Tecnológico</a></li>
+        <li><a href="#stack-tecnologico">Stack</a></li>
       </ul>
     </li>
     <li>
       <a href="#comenzando">Comenzando</a>
       <ul>
-        <li><a href="#prerequisitos">Prerrequisitos</a></li>
-        <li><a href="#instalación">Instalación</a></li>
+        <li><a href="#prerequisitos">Prerequisitos</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
       </ul>
     </li>
     <li><a href="#usao">Uso</a></li>
@@ -57,105 +57,105 @@ href="https://github.com/omnipro-solutions/saas-app-base.git">
 <!-- SOBRE EL PROYECTO -->
 ## Descripción
 
-El repositorio `omnipro-solutions-saas-app-base` es una base de código diseñada para facilitar el desarrollo de aplicaciones SaaS que se conectan con Omnímetro (OMS). Proporciona un conjunto robusto de herramientas y funcionalidades comunes necesarias para construir aplicaciones Django, incluyendo autenticación avanzada, gestión de usuarios, configuraciones de base de datos optimizadas, integración con servicios externos como Celery para tareas asíncronas, y configuraciones detalladas de logging.
+El repositorio `omnipro-solutions-saas-app-base` es una biblioteca de módulos base diseñada para ser utilizada en aplicaciones Django, específicamente para conectar con OMS (Omnipro Solutions). Su propósito principal es proporcionar funcionalidades básicas y comunes que pueden ser reutilizadas en diferentes proyectos de SaaS basados en Django. Las funcionalidades principales incluyen autenticación, gestión de usuarios y grupos, configuraciones base, herramientas administrativas mejoradas con `django-jazzmin`, y una API RESTful utilizando Django Rest Framework.
 
-La estructura del repositorio está organizada siguiendo el patrón MVC (Model-View-Controller) típico en Django. Incluye modelos personalizados, vistas utilizando Django Rest Framework, serializadores para APIs RESTful, formularios personalizados y configuraciones administrativas detalladas.
+El repositorio está estructurado siguiendo una arquitectura típica de proyectos Django, con carpetas para modelos, vistas, formularios, serializadores, configuraciones y más. Entre los archivos principales se encuentran `README.md` para la documentación básica, `LICENSE` bajo MIT, `requirements.txt` para las dependencias necesarias, y el script `make_migrations.py` para generar migraciones de base de datos.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Stack tecnológico
 
-* [![Django][Django]][Django-url]
-* [![Python][Python]][Python-url]
+* [![Django][django]][django-url]
+* [![Python][python]][python-url]
+* [![PostgreSQL][postgresql]][postgresql-url]
+* [![Redis][redis]][redis-url]
+* [![Celery][celery]][celery-url]
 * [![DRF][drf]][drf-url]
-* [![Celery][Celery]][Celery-url]
-* [![Redis][Redis]][Redis-url]
-* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONFIGURACIÓN LOCAL -->
-## Comenzando
+## Iniciar Proyecto
 
-Para configurar el proyecto en tu entorno local, sigue las instrucciones detalladas a continuación.
+Sigue estas instrucciones para configurar el proyecto en tu entorno local.
 
-### Prerrequisitos
+### Prerequisitos
+
+Antes de comenzar, asegúrate de tener instalado:
 
 - Python 3.8 o superior
-- PostgreSQL instalado y funcionando
-- Redis instalado para manejar tareas asíncronas con Celery
-- Git para clonar el repositorio
+- PostgreSQL
+- Redis
+- Pip (gestor de paquetes de Python)
 
 ### Instalación
 
-1. Clone the repo
+1. Clona el repositorio:
    ```sh
    git clone https://github.com/omnipro-solutions/saas-app-base.git
-   cd saas-app-base/
+   cd saas-app-base/omnipro-solutions-saas-app-base/
    ```
-
-2. Create a virtual environment (recommended)
+2. Crea un entorno virtual (opcional pero recomendado):
    ```sh
    python -m venv env
-   source env/bin/activate  # En Windows: .\env\Scripts\activate
+   source env/bin/activate  # En Windows: env\Scripts\activate
    ```
-
-3. Install dependencies
+3. Instala las dependencias:
    ```sh
    pip install -r requirements.txt
    ```
-
-4. Configure your environment variables by creating a `.env` file in the root directory with necessary settings like `SECRET_KEY`, `DATABASE_URL`, etc.
-
-5. Create and apply migrations
+4. Configura tus variables de entorno creando un archivo `.env` en la raíz del proyecto y define las variables necesarias, como `SECRET_KEY`, `DATABASE_URL`, etc.
+5. Genera migraciones y aplícalas:
    ```sh
-   python manage.py makemigrations
+   python make_migrations.py
    python manage.py migrate
    ```
-
-6. Run the development server
+6. Crea un superusuario (opcional):
+   ```sh
+   python manage.py createsuperuser
+   ```
+7. Ejecuta el servidor de desarrollo:
    ```sh
    python manage.py runserver
    ```
-
-7. Access the application by navigating to `http://127.0.0.1:8000/admin/` in your browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Ejemplos de uso -->
 ## Uso
 
-Para comenzar a utilizar la base de código, asegúrate de haber seguido todos los pasos de instalación. Una vez que el servidor esté en funcionamiento, puedes acceder al panel administrativo para gestionar usuarios y configuraciones.
+Para utilizar la biblioteca, puedes comenzar integrando sus funcionalidades en tu proyecto Django. Por ejemplo, para gestionar usuarios y autenticación, puedes usar los modelos y vistas proporcionados en el directorio `omni_pro_base`.
 
-_For more examples and detailed usage instructions, please refer to the [Documentation](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)_
+_For more examples, please refer to the [Documentation](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Implementar sistema de caché para desarrollo y pruebas.
-- [ ] Desarrollar suite completa de pruebas unitarias.
-- [ ] Mejorar documentación con configuraciones específicas y ejemplos de uso.
-- [ ] Integrar más servicios externos según sea necesario.
+- [ ] Implementación de caché
+- [ ] Pruebas automatizadas completas
+- [ ] Documentación ampliada con guías detalladas y mejores prácticas
+- [ ] Medidas de seguridad adicionales, como validación de entradas y uso de HTTPS en producción
+- [ ] Integración avanzada de monitoreo y logging
 
 Mira las [ISSUES](https://github.com/omnipro-solutions/saas-app-base/issues) para una lista completa de mejoras (problemas conocidos).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
+<!-- CONTRIBUYENDO -->
 ## Contribuyendo
 
-Contribuciones son lo que hacen a la comunidad de código abierto un lugar tan maravilloso para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
+Las contribuciones son lo que hace que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear. Cualquier contribución que haga es **muy apreciada**.
 
-Si tienes una sugerencia que haría esto mejor, por favor "fork" el repo y crea una pull request. También puedes simplemente abrir un issue con la etiqueta "enhancement".
-¡No olvides darle al proyecto una estrella! ¡Gracias de nuevo!
+Si tienes una sugerencia que mejoraría esto, "fork" el repositorio y crea una solicitud de pull request. También puede simplemente abrir un problema con la etiqueta "mejora".
+¡No te olvides de darle una estrella al proyecto! ¡Gracias de nuevo!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. "Fork" el Proyecto
+2. Crea tu rama "Feature" (`git checkout -b feature/AmazingFeature`)
+3. Realiza un "commit" a tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. "Push" a tus cambios locales a la rama remota (`git push origin feature/AmazingFeature`)
+5. Inicia una 'pull request'
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -168,7 +168,7 @@ Si tienes una sugerencia que haría esto mejor, por favor "fork" el repo y crea 
 <!-- LICENCIA -->
 ## Licencia
 
-Distribuido bajo la Licencia MIT. Ve a `LICENSE.txt` para más información.
+Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,15 +186,16 @@ Distribuido bajo la Licencia MIT. Ve a `LICENSE.txt` para más información.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/omni.pro/
 
-[Django]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=djangoproject&logoColor=white
-[Django-url]: https://www.djangoproject.com/
-[Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
-[Python-url]: https://www.python.org/
-[drf]: https://img.shields.io/badge/django%20rest-framework-3DDC84.svg?style=for-the-badge&logo=django-rest-framework&logoColor=white
+<!-- Badges -->
+[django]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[django-url]: https://www.djangoproject.com/
+[python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[python-url]: https://www.python.org/
+[postgresql]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+[postgresql-url]: https://www.postgresql.org/
+[redis]: https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white
+[redis-url]: https://redis.io/
+[celery]: https://img.shields.io/badge/Celery-008080?style=for-the-badge&logo=celery&logoColor=white
+[celery-url]: http://www.celeryproject.org/
+[drf]: https://img.shields.io/badge/Django_REST_Framework-3B8EFF?style=for-the-badge&logo=django-rest-framework&logoColor=white
 [drf-url]: https://www.django-rest-framework.org/
-[Celery]: https://img.shields.io/badge/Celery-4A154B?style=for-the-badge&logo=celery&logoColor=white
-[Celery-url]: http://www.celeryproject.org/
-[Redis]: https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white
-[Redis-url]: https://redis.io/
-[PostgreSQL]: https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
-[PostgreSQL-url]: https://www.postgresql.org/
