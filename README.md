@@ -14,10 +14,10 @@ href="https://github.com/omnipro-solutions/saas-app-base.git">
     <img src="https://pngimg.com/uploads/github/github_PNG78.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">OmniPro Solutions SaaS App Base</h3>
+<h3 align="center">Base de Código para Aplicaciones SaaS</h3>
 
   <p align="center">
-    Biblioteca de módulos base para aplicaciones SaaS conectadas a OMS.
+    Base de código diseñada para aplicaciones SaaS que se conectan con OMS.
     <br />
     <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Documentación oficial »</strong></a>
     <br />
@@ -36,14 +36,14 @@ href="https://github.com/omnipro-solutions/saas-app-base.git">
     <li>
       <a href="#descripción">Descripción</a>
       <ul>
-        <li><a href="#stack-tecnologico">Stack</a></li>
+        <li><a href="#stack-tecnologico">Stack Tecnológico</a></li>
       </ul>
     </li>
     <li>
       <a href="#comenzando">Comenzando</a>
       <ul>
         <li><a href="#prerequisitos">Prerrequisitos</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#instalación">Instalación</a></li>
       </ul>
     </li>
     <li><a href="#usao">Uso</a></li>
@@ -57,12 +57,20 @@ href="https://github.com/omnipro-solutions/saas-app-base.git">
 <!-- SOBRE EL PROYECTO -->
 ## Descripción
 
-El repositorio `omnipro-solutions-saas-app-base` es una biblioteca de módulos base diseñada para facilitar el desarrollo de aplicaciones SaaS que se integran con Open Management System (OMS). Este proyecto proporciona funcionalidades básicas y estructuras necesarias, incluyendo autenticación, modelos extendidos, serializadores, configuraciones de Django, integración con Django Rest Framework, y gestión de migraciones.
+El repositorio `omnipro-solutions-saas-app-base` es una base de código diseñada para facilitar el desarrollo de aplicaciones SaaS que se conectan con Omnímetro (OMS). Proporciona un conjunto robusto de herramientas y funcionalidades comunes necesarias para construir aplicaciones Django, incluyendo autenticación avanzada, gestión de usuarios, configuraciones de base de datos optimizadas, integración con servicios externos como Celery para tareas asíncronas, y configuraciones detalladas de logging.
+
+La estructura del repositorio está organizada siguiendo el patrón MVC (Model-View-Controller) típico en Django. Incluye modelos personalizados, vistas utilizando Django Rest Framework, serializadores para APIs RESTful, formularios personalizados y configuraciones administrativas detalladas.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Stack tecnológico
-- [![Python][Python]][Python-url]
-- [![Django][Django]][Django-url]
-- [![DRF][drf]][drf-url]
+
+* [![Django][Django]][Django-url]
+* [![Python][Python]][Python-url]
+* [![DRF][drf]][drf-url]
+* [![Celery][Celery]][Celery-url]
+* [![Redis][Redis]][Redis-url]
+* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -73,62 +81,63 @@ Para configurar el proyecto en tu entorno local, sigue las instrucciones detalla
 
 ### Prerrequisitos
 
-Asegúrate de tener instalados los siguientes componentes:
-- Python 3.11 o superior
-- Pip para la gestión de paquetes
-- Git para control de versiones
-- PostgreSQL como base de datos (SQLite para desarrollo)
+- Python 3.8 o superior
+- PostgreSQL instalado y funcionando
+- Redis instalado para manejar tareas asíncronas con Celery
+- Git para clonar el repositorio
 
 ### Instalación
 
-1. Clona el repositorio
+1. Clone the repo
    ```sh
    git clone https://github.com/omnipro-solutions/saas-app-base.git
-   cd saas-app-base/omnipro-solutions-saas-app-base/
+   cd saas-app-base/
    ```
 
-2. Crea un entorno virtual (Opcional pero recomendado)
+2. Create a virtual environment (recommended)
    ```sh
    python -m venv env
-   source env/bin/activate  # En Windows: env\Scripts\activate
+   source env/bin/activate  # En Windows: .\env\Scripts\activate
    ```
 
-3. Instala las dependencias
+3. Install dependencies
    ```sh
    pip install -r requirements.txt
    ```
 
-4. Configura variables de entorno
-   Crea un archivo `.env` en el directorio raíz del proyecto y configura las variables necesarias (por ejemplo, `SECRET_KEY`, `DATABASE_URL`, etc.).
+4. Configure your environment variables by creating a `.env` file in the root directory with necessary settings like `SECRET_KEY`, `DATABASE_URL`, etc.
 
-5. Ejecuta migraciones
+5. Create and apply migrations
    ```sh
-   python make_migrations.py
+   python manage.py makemigrations
+   python manage.py migrate
    ```
 
-6. Inicia el servidor de desarrollo
+6. Run the development server
    ```sh
    python manage.py runserver
    ```
+
+7. Access the application by navigating to `http://127.0.0.1:8000/admin/` in your browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Ejemplos de uso -->
 ## Uso
 
-Para utilizar la biblioteca, asegúrate de haber configurado correctamente el entorno. Puedes acceder a las APIs definidas en `urls.py` y utilizar los serializadores en `serializers/` para convertir objetos modelo a JSON.
+Para comenzar a utilizar la base de código, asegúrate de haber seguido todos los pasos de instalación. Una vez que el servidor esté en funcionamiento, puedes acceder al panel administrativo para gestionar usuarios y configuraciones.
 
-_For more examples, please refer to the [Documentation](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)_
+_For more examples and detailed usage instructions, please refer to the [Documentation](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Implementar soporte multi-tenencia
-- [ ] Mejorar la integración con sistemas externos
-- [ ] Desarrollar una capa frontend robusta
-    - [ ] Integración con React o Vue.js
+- [ ] Implementar sistema de caché para desarrollo y pruebas.
+- [ ] Desarrollar suite completa de pruebas unitarias.
+- [ ] Mejorar documentación con configuraciones específicas y ejemplos de uso.
+- [ ] Integrar más servicios externos según sea necesario.
 
 Mira las [ISSUES](https://github.com/omnipro-solutions/saas-app-base/issues) para una lista completa de mejoras (problemas conocidos).
 
@@ -139,13 +148,14 @@ Mira las [ISSUES](https://github.com/omnipro-solutions/saas-app-base/issues) par
 
 Contribuciones son lo que hacen a la comunidad de código abierto un lugar tan maravilloso para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
 
-Si tienes una sugerencia que haría esto mejor, por favor fork el repositorio y crea una solicitud de extracción. También puedes simplemente abrir un problema con la etiqueta "enhancement". ¡No olvides darle a este proyecto una estrella! Gracias nuevamente!
+Si tienes una sugerencia que haría esto mejor, por favor "fork" el repo y crea una pull request. También puedes simplemente abrir un issue con la etiqueta "enhancement".
+¡No olvides darle al proyecto una estrella! ¡Gracias de nuevo!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a 'pull request'
+5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,7 +168,7 @@ Si tienes una sugerencia que haría esto mejor, por favor fork el repositorio y 
 <!-- LICENCIA -->
 ## Licencia
 
-Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
+Distribuido bajo la Licencia MIT. Ve a `LICENSE.txt` para más información.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,9 +186,15 @@ Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/omni.pro/
 
-[Python]: https://img.shields.io/badge/python-3.11-blue?style=for-the-badge&logo=python
-[Python-url]: https://www.python.org/
-[Django]: https://img.shields.io/badge/django-5.0-green?style=for-the-badge&logo=django
+[Django]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=djangoproject&logoColor=white
 [Django-url]: https://www.djangoproject.com/
-[drf]: https://img.shields.io/badge/DRF-blue?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACpSURBVDjLY/j//z8DJYGBgYEBAQEBgYGBgQEBAQEBgYGBgQEBAQEBgYGBgQEBAQEBgYGBgQEBAQEBgYGBgQEBAQEBgYGBgQEBAQEBgYGBgQEBAQEBgYGBgUEBAYHh4eHw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAABJRU5ErkJggg==
+[Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[Python-url]: https://www.python.org/
+[drf]: https://img.shields.io/badge/django%20rest-framework-3DDC84.svg?style=for-the-badge&logo=django-rest-framework&logoColor=white
 [drf-url]: https://www.django-rest-framework.org/
+[Celery]: https://img.shields.io/badge/Celery-4A154B?style=for-the-badge&logo=celery&logoColor=white
+[Celery-url]: http://www.celeryproject.org/
+[Redis]: https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white
+[Redis-url]: https://redis.io/
+[PostgreSQL]: https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
+[PostgreSQL-url]: https://www.postgresql.org/
