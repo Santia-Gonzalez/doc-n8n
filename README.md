@@ -8,22 +8,22 @@
 <br />
 <div align="center">
 
-<a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base.git">
+<a href="https://github.com/Omnipro-Solutions/saas-app-base.git">
     <img src="https://th.bing.com/th/id/OIP.ddlVF3lJNr9URRtdchRLcQHaHa?rs=1&pid=ImgDetMain" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Omnipro Solutions SaaS App Base</h3>
+<h3 align="center">omnipro-solutions-saas-app-base</h3>
 
   <p align="center">
-    Una biblioteca de Python diseñada para facilitar la creación de aplicaciones Django adaptadas a las necesidades del módulo base de Omnipro Solutions.
+    Una biblioteca de Python diseñada para ser un módulo base en aplicaciones Django, específicamente dirigida a integrarse con el sistema OMS (Omnipro Management System).
     <br />
     <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     &middot;
-    <a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/issues">Report Bug</a>
+    <a href="https://github.com/Omnipro-Solutions/saas-app-base/issues">Report Bug</a>
     &middot;
-    <a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/pulls">Request Feature</a>
+    <a href="https://github.com/Omnipro-Solutions/saas-app-base/pullrequest">Request Feature</a>
   </p>
 </div>
 
@@ -49,64 +49,62 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-El repositorio `omnipro-solutions-saas-app-base` es una poderosa biblioteca de Python diseñada para facilitar la creación y gestión de aplicaciones Django específicamente adaptadas a las necesidades del módulo base de Omnipro Solutions. Su propósito principal es proporcionar un conjunto de funcionalidades predefinidas que pueden ser integradas en proyectos SaaS, permitiendo una rápida configuración y gestión de características comunes como autenticación, administración de usuarios, manejo de solicitudes HTTP, migraciones de base de datos, entre otras. Este repositorio está diseñado para acelerar el desarrollo de aplicaciones SaaS robustas utilizando Django.
+El repositorio `omnipro-solutions-saas-app-base` es una biblioteca de Python diseñada para ser un módulo base en aplicaciones Django, específicamente dirigida a integrarse con el sistema OMS (Omnipro Management System). Su propósito principal es proporcionar funcionalidades comunes y reutilizables que facilitan la creación de aplicaciones SaaS dentro del ecosistema Omnipro. Las principales funcionalidades incluyen autenticación, modelos auditados, serialización, personalización del panel de administración Django mediante Jazzmin, y soporte para configuraciones dinámicas.
 
 ### Built With
 
-Este proyecto fue construido usando:
-
-* [![Python][Python-logo]][Python-url]
-* [![Django][Django-logo]][Django-url]
-* [![Django REST Framework][DRF-logo]][DRF-url]
+* [![Python][python]][python-url]
+* [![Django][django]][django-url]
+* [![Jazzmin][jazzmin]][jazzmin-url]
+* [![Django Rest Framework][djangorestframework]][djangorestframework-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Para configurar el proyecto en tu entorno local, sigue las siguientes instrucciones:
+Sigue estas instrucciones para configurar el proyecto en tu entorno local.
 
 ### Prerequisites
 
-Antes de comenzar, asegúrate de tener instalado lo siguiente:
-
-- Python 3.11 o superior
-- Pip (gestor de paquetes de Python)
+- Python 3.8 o superior
+- Django 3.2 o superior
+- PostgreSQL (opcional, se puede usar SQLite)
 
 ### Installation
 
 1. Clona el repositorio:
    ```sh
-   git clone https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base.git
-   cd omnipro-solutions-saas-app-base/
+   git clone https://github.com/Omnipro-Solutions/saas-app-base.git
+   cd saas-app-base/omnipro-solutions-saas-app-base/
    ```
-
-2. Crea un entorno virtual (opcional pero recomendado):
-   ```sh
+2. Crea un entorno virtual y activa:
+   ```bash
    python -m venv env
-   source env/bin/activate  # En Windows, usa `env\Scripts\activate`
+   source env/bin/activate  # En Windows: env\Scripts\activate
    ```
-
 3. Instala las dependencias:
-   ```sh
+   ```bash
    pip install -r requirements.txt
    ```
-
-4. Configura tus variables de entorno creando un archivo `.env` en la raíz del proyecto y configurando las variables necesarias (por ejemplo, `SECRET_KEY`, URLs de base de datos, etc.).
-
-5. Genera migraciones:
-   ```sh
-   python make_migrations.py
+4. Configura las variables de entorno necesarias (puedes usar un archivo `.env` y `environs` para gestionarlas).
+5. Crea la base de datos SQLite (o configura PostgreSQL si lo prefieres):
+   ```bash
+   python manage.py migrate
    ```
-
-6. Ejecuta el servidor Django:
-   ```sh
+6. Crea un superusuario:
+   ```bash
+   python manage.py createsuperuser
+   ```
+7. Inicia el servidor de desarrollo:
+   ```bash
    python manage.py runserver
    ```
 
@@ -115,33 +113,41 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Para utilizar la biblioteca en tu proyecto, puedes seguir estos pasos:
+Para utilizar la biblioteca, puedes extender los modelos y funcionalidades proporcionadas para crear aplicaciones SaaS personalizadas. A continuación se muestra un ejemplo básico de cómo integrar autenticación OAuth 2.0:
 
-1. Importa el módulo base de Omnipro Solutions en tu proyecto Django.
-2. Integra las funcionalidades predefinidas como autenticación y administración de usuarios según sea necesario.
-3. Configura tus rutas URL y vistas utilizando los archivos `urls.py` y `views.py` proporcionados.
+```python
+from omnipro_solutions_saas_app_base.backends import CustomOAuth2Backend
 
-Para más ejemplos, por favor refiérete a la [Documentación](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core).
+# Configura el backend de autenticación en tu settings.py
+AUTHENTICATION_BACKENDS = [
+    'omnipro_solutions_saas_app_base.backends.CustomOAuth2Backend',
+    # Otros backends...
+]
+```
+
+Para más ejemplos, por favor refiérete a la [documentación](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Mejoras en seguridad, como protección contra CSRF y XSS.
-- [ ] Soporte para otros sistemas de base de datos además de PostgreSQL.
-- [ ] Documentación ampliada con ejemplos prácticos de uso.
+- [ ] Implementar caching para mejorar el rendimiento
+- [ ] Desarrollar pruebas unitarias completas
+- [ ] Soporte para múltiples bases de datos
+  - [ ] Configuración avanzada de PostgreSQL
 
-Ver los [issues abiertos](#) para una lista completa de características propuestas (y problemas conocidos).
+Ver los [issues abiertos](https://github.com/Omnipro-Solutions/saas-app-base/issues) para una lista completa de características propuestas (y problemas conocidos).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar tan maravilloso para aprender, inspirar y crear. Cualquier contribución que hagas es **altamente apreciada**.
+Las contribuciones hacen que la comunidad de código abierto sea un lugar increíble para aprender, inspirarse y crear. Cualquier contribución que hagas es **muy apreciada**.
 
-Si tienes una sugerencia que haría esto mejor, por favor forkea el repositorio y crea una solicitud de extracción. También puedes simplemente abrir un problema con la etiqueta "enhancement". ¡No olvides darle a este proyecto una estrella! Muchas gracias.
+Si tienes una sugerencia que haría esto mejor, por favor forkea el repositorio y crea una solicitud de extracción. También puedes simplemente abrir un problema con la etiqueta "enhancement".
+¡No olvides darle a este proyecto una estrella! ¡Gracias de nuevo!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -153,47 +159,51 @@ Si tienes una sugerencia que haría esto mejor, por favor forkea el repositorio 
 
 ### Top contributors:
 
-<a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Omnipro-Solutions/omnipro-solutions-saas-app-base" alt="contrib.rocks image" />
+<a href="https://github.com/Omnipro-Solutions/saas-app-base/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Omnipro-Solutions/saas-app-base" alt="contrib.rocks image" />
 </a>
 
 <!-- LICENSE -->
 ## License
 
-Distribuido bajo la Licencia MIT. Consulta `LICENSE.txt` para más información.
+Distribuido bajo la licencia MIT. Consulta `LICENSE.txt` para más información.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
 
-Si tienes preguntas o necesitas soporte, por favor contacta a [email@omni.pro](mailto:email@omni.pro).
+Si tienes alguna pregunta o comentario, no dudes en contactar a través de [LinkedIn](https://www.linkedin.com/company/omni.pro/) o enviando un correo electrónico a `contact@omnipro.com`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-- Gracias a toda la comunidad de Django y Python por su apoyo continuo.
-- Agradecimientos especiales a [LinkedIn](https://www.linkedin.com/company/omni.pro/) por el soporte profesional.
+- Agradecimientos especiales al equipo de Omnipro por su apoyo continuo.
+- Inspiración y guía del [Django Documentation](https://docs.djangoproject.com/en/stable/).
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
-[contributors-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
-[forks-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/network/members
-[stars-shield]: https://img.shields.io/github/stars/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
-[stars-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
-[issues-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/issues
-[license-shield]: https://img.shields.io/github/license/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
-[license-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/blob/master/LICENSE.txt
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[contributors-url]: https://github.com/Omnipro-Solutions/saas-app-base/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[forks-url]: https://github.com/Omnipro-Solutions/saas-app-base/network/members
+[stars-shield]: https://img.shields.io/github/stars/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[stars-url]: https://github.com/Omnipro-Solutions/saas-app-base/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[issues-url]: https://github.com/Omnipro-Solutions/saas-app-base/issues
+[license-shield]: https://img.shields.io/github/license/Omnipro-Solutions/saas-app-base.svg?style=for-the-badge
+[license-url]: https://github.com/Omnipro-Solutions/saas-app-base/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/omni.pro/
 
-[Python-logo]: https://www.python.org/static/img/python-logo.png
-[Python-url]: https://www.python.org/
-[Django-logo]: https://djangoproject.com/logos/django-logo-negative.svg
-[Django-url]: https://www.djangoproject.com/
-[DRF-logo]: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-[DRF-url]: https://www.django-rest-framework.org/
+[pic-python]: https://img.shields.io/badge/python-3.8+-blue.svg?style=flat-square&logo=python
+[pic-django]: https://img.shields.io/badge/django-3.2-blue.svg?style=flat-square&logo=django
+[pic-jazzmin]: https://img.shields.io/badge/jazzmin-0.4.1-green.svg?style=flat-square&logo=jazzmin
+[pic-djangorestframework]: https://img.shields.io/badge/django_rest_framework-3.12.2-blue.svg?style=flat-square&logo=djangorestframework
+
+[python-url]: https://www.python.org/
+[django-url]: https://www.djangoproject.com/
+[jazzmin-url]: https://github.com/app-generator/jazzmin
+[djangorestframework-url]: https://www.django-rest-framework.org/
