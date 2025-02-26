@@ -18,166 +18,167 @@
 <h3 align="center">omnipro-solutions-saas-app-base</h3>
 
   <p align="center">
-    Biblioteca de módulo base para aplicaciones Django en proyectos OMS
+    Biblioteca de módulo base para aplicaciones Django en proyectos OMS.
     <br />
-    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Explore la documentación »</strong></a>
+    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     &middot;
-    <a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/issues">Reportar un Bug</a>
+    <a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/issues">Report Bug</a>
     &middot;
-    <a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/pulls">Solicitar una Función</a>
+    <a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/pullrequest">Request Feature</a>
   </p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Índice de Contenidos</summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Acerca del Proyecto</a>
+      <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Construido con</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Comenzando</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Requisitos previos</a></li>
-        <li><a href="#installation">Instalación</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Uso</a></li>
-    <li><a href="#roadmap">Ruta de Desarrollo</a></li>
-    <li><a href="#contributing">Contribuyendo</a></li>
-    <li><a href="#license">Licencia</a></li>
-    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## Acerca del Proyecto
+## About The Project
 
-El repositorio `omnipro-solutions-saas-app-base` es una biblioteca de módulo base diseñada para integrarse con aplicaciones Django, especialmente en los proyectos OMS (Omnipro Solutions) y sus microservicios. Ofrece funcionalidades avanzadas relacionadas con la autenticación, gestión de usuarios, serialización de datos, administración del backend de Django y más.
+El repositorio `omnipro-solutions-saas-app-base` es una biblioteca de módulo base diseñada para integrarse con aplicaciones Django. Forma parte de los proyectos OMS (Omnipro Solutions) y sus microservicios, ofreciendo funcionalidades avanzadas relacionadas con la autenticación, gestión de usuarios, serialización de datos, administración del backend de Django, entre otras.
 
-La biblioteca está estructurada para facilitar el desarrollo rápido y eficiente de aplicaciones SaaS robustas utilizando Django como framework principal. Con una arquitectura modular, permite extender fácilmente las capacidades básicas según los requisitos específicos de cada proyecto.
+Esta biblioteca facilita el desarrollo de aplicaciones robustas y escalables al proporcionar herramientas esenciales que se integran sin problemas en proyectos basados en Django. Con un enfoque modular, permite a los desarrolladores personalizar y extender sus funcionalidades según las necesidades específicas del proyecto.
 
-<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Construido con
+### Built With
+
+Este repositorio está construido utilizando tecnologías clave para el desarrollo de aplicaciones Django:
 
 * [![Python][Python]][Python-url]
 * [![Django][Django]][Django-url]
 * [![Celery][Celery]][Celery-url]
+* [![Redis][Redis]][Redis-url]
+* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
 
-<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-## Comenzando
+## Getting Started
 
-A continuación, se presentan instrucciones claras y precisas para configurar el proyecto en tu entorno local.
+Sigue estas instrucciones para configurar el proyecto en tu entorno local.
 
-### Requisitos previos
+### Prerequisites
 
-* Python >= 3.11
-* Django == 5.0
-* Redis (como broker de mensajes)
-* PostgreSQL (como base de datos)
+Asegúrate de tener instalados los siguientes componentes:
 
-### Instalación
+- Python >= 3.11
+- PostgreSQL (como base de datos)
+- Redis (como broker de mensajes)
 
-1. Clonar el repositorio:
+### Installation
+
+1. Clona el repositorio:
    ```sh
    git clone https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base.git
    ```
-2. Navegar al directorio del proyecto:
-   ```sh
+2. Navega al directorio del proyecto:
+   ```bash
    cd omnipro-solutions-saas-app-base/
    ```
-3. Crear un entorno virtual (opcional pero recomendado):
-   ```sh
+3. Crea un entorno virtual (opcional pero recomendado):
+   ```bash
    python -m venv env
-   source env/bin/activate  # En Windows, use `.\env\Scripts\activate`
+   source env/bin/activate  # En Windows, usa `.\env\Scripts\activate`
    ```
-4. Instalar dependencias:
-   ```sh
+4. Instala las dependencias:
+   ```bash
    pip install -r requirements.txt
    ```
-5. Configurar la base de datos y otras variables en los archivos de configuración (`settings/base.py`, `settings/local.py`).
-6. Generar migraciones y aplicarlas:
-   ```sh
+5. Configura la base de datos y otras variables en los archivos de configuración (`settings/base.py`, `settings/local.py`).
+6. Genera migraciones y aplícalas:
+   ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
-7. Ejecutar el servidor de desarrollo:
-   ```sh
-   python manage.py runserver
-   ```
 
-<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
-## Uso
+## Usage
 
-Para utilizar la biblioteca `omni-pro-app-base`, puedes implementar sus funcionalidades en tu proyecto Django de la siguiente manera:
+Para utilizar la biblioteca `omni-pro-app-base` en tu proyecto Django, sigue estos pasos básicos:
 
-1. Importar los módulos necesarios desde el paquete.
-2. Configurar las vistas y serializadores para manejar solicitudes HTTP.
-3. Utilizar los backends personalizados para autenticación.
+1. Añade el módulo base a tus aplicaciones instaladas en `INSTALLED_APPS`.
+2. Configura las rutas de autenticación y gestión de usuarios según sea necesario.
+3. Usa los serializadores proporcionados para manejar la conversión entre objetos modelo y formatos JSON.
 
-_¡Para más ejemplos, por favor consulta la [Documentación](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)!_
+Para más ejemplos, consulta la [documentación](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core).
 
-<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
-## Ruta de Desarrollo
+## Roadmap
 
-- [ ] Implementación de Caché
-- [ ] Mejoras en Seguridad
-- [ ] Soporte Multilenguaje
-    - [ ] Internacionalización avanzada
+- [ ] Implementar caché para mejorar el rendimiento
+- [ ] Mejorar políticas de seguridad, especialmente en la gestión de tokens y autenticación
+- [ ] Ampliar capacidades de internacionalización más allá del inglés
+- [ ] Desarrollar un conjunto completo de pruebas automatizadas
 
-Consulta los [issues abiertos](https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/issues) para una lista completa de funciones propuestas (y problemas conocidos).
+Ver los [issues abiertos](https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/issues) para una lista completa de características propuestas (y problemas conocidos).
 
-<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
-## Contribuyendo
+## Contributing
 
-Las contribuciones hacen que la comunidad de código abierto sea un lugar increíblemente maravilloso para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
+Contribuciones son lo que hacen a la comunidad de código abierto un lugar tan maravilloso para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
 
-Si tienes una sugerencia que haría esto mejor, por favor forkea el repositorio y crea una solicitud de extracción. También puedes simplemente abrir un problema con la etiqueta "mejora".
+Si tienes una sugerencia que haría esto mejor, por favor forke el repositorio y crea una solicitud de extracción. También puedes simplemente abrir un problema con la etiqueta "mejora".
 ¡No olvides darle a este proyecto una estrella! ¡Gracias nuevamente!
 
-1. Fork del Proyecto
-2. Crear tu Rama de Características (`git checkout -b feature/AmazingFeature`)
-3. Cometer tus Cambios (`git commit -m 'Añadir some AmazingFeature'`)
-4. Empujar a la Rama (`git push origin feature/AmazingFeature`)
-5. Abrir una solicitud de extracción
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a 'pull request'
 
-<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Principales contribuyentes:
+### Top contributors:
 
 <a href="https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Omnipro-Solutions/omnipro-solutions-saas-app-base" alt="contrib.rocks image" />
 </a>
 
 <!-- LICENSE -->
-## Licencia
+## License
 
 Distribuido bajo la licencia MIT. Consulta `LICENSE.txt` para más información.
 
-<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
 [contributors-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
 [forks-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/network/members
+[stars-shield]: https://img.shields.io/github/stars/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
+[stars-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
 [issues-url]: https://github.com/Omnipro-Solutions/omnipro-solutions-saas-app-base/issues
 [license-shield]: https://img.shields.io/github/license/Omnipro-Solutions/omnipro-solutions-saas-app-base.svg?style=for-the-badge
@@ -185,12 +186,19 @@ Distribuido bajo la licencia MIT. Consulta `LICENSE.txt` para más información.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/omni.pro/
 
-[Python]: https://img.shields.io/badge/python-3.11-blue.svg
+<!-- Icons -->
+[Python]: https://img.shields.io/badge/python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white
+[Django]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white
+[Celery]: https://img.shields.io/badge/celery-%23F0DB4F.svg?style=for-the-badge&logo=celery&logoColor=black
+[Redis]: https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white
+[PostgreSQL]: https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
+
+<!-- URLs -->
 [Python-url]: https://www.python.org/
-[Django]: https://img.shields.io/badge/django-5.0-green.svg
 [Django-url]: https://www.djangoproject.com/
-[Celery]: https://img.shields.io/badge/celery-5.2-red.svg
 [Celery-url]: http://www.celeryproject.org/
+[Redis-url]: https://redis.io/
+[PostgreSQL-url]: https://www.postgresql.org/
 ```
 
-Este `README.md` proporciona una descripción profesional y clara del repositorio, organizando la información de manera estructurada para facilitar su comprensión y uso por parte de los desarrolladores interesados.
+Este documento proporciona una descripción completa y profesional del repositorio `omnipro-solutions-saas-app-base`, incluyendo detalles sobre su propósito, instalación y uso.
