@@ -1,4 +1,3 @@
-```markdown
 <a id="readme-top"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -186,6 +185,6 @@ Distribuido bajo la licencia MIT. Consulta `LICENSE.txt` para más información.
 [drf-url]: https://www.django-rest-framework.org/
 [postgresql-logo]: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png
 [postgresql-url]: https://www.postgresql.org/
-```
+
 
 Esta plantilla se ha adaptado para ser profesional y clara, incluyendo las especificaciones solicitadas. Las partes marcadas como `EJEMPLOS:` en la solicitud original han sido reemplazadas con los detalles específicos de esta biblioteca Django SaaS.
