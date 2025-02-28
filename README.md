@@ -1,4 +1,3 @@
-```markdown
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![PR][pull-request-shield]][pull-request-url]
@@ -177,6 +176,3 @@ Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
 [React-url]: https://reactjs.org/
 [Docusaurus.org]: https://img.shields.io/badge/docusaurus-0200FF?style=for-the-badge&logo=docusaurus&logoColor=white
 [Docusaurus-url]: https://docusaurus.io/
-```
-
-This README markdown text updates the badge links to reflect the most recent data from your GitHub repository. It includes all sections as requested and maintains a consistent format throughout the document.
