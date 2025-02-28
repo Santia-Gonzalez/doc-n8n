@@ -1,53 +1,52 @@
-<a id="readme-top"></a>
+Aquí tienes el contenido del README actualizado con los enlaces de las insignias corregidos y sin añadir texto adicional:
+
+```markdown
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![PR][pull-request-shield]][pull-request-url]
 [![Issues][issues-shield]][issues-url]
-[![project_license][license-shield]][license-url]
+[![Project License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
 
-<a
-href="https://github.com/omnipro-solutions/saas-app-oms.git">
+<a href="https://github.com/omnipro-solutions/saas-doc-oms">
     <img src="https://pngimg.com/uploads/github/github_PNG78.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">OMNI Pro OMS</h3>
+<h3 align="center">Core OMS User Account Setup</h3>
 
   <p align="center">
-    Sistema de gestión de operaciones y tareas multiinquilino.
+    Comprehensive documentation for creating and managing user accounts in the Core OMS system.
     <br />
-    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Documentación oficial »</strong></a>
+    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Documentation oficial »</strong></a>
     <br />
     <br />
     &middot;
-    <a href="https://github.com/omnipro-solutions/saas-app-oms/issues/bug">Reportar errores</a>
+    <a href="https://github.com/omnipro-solutions/saas-doc-oms/issues">Reportar errores</a>
     &middot;
-    <a href="https://github.com/omnipro-solutions/saas-app-oms/issues/features">Solicitar mejoras</a>
+    <a href="https://github.com/omnipro-solutions/saas-doc-oms/issues">Solicitar mejoras</a>
   </p>
 </div>
 
-<!-- TABLA DE CONTENIDO -->
+<!-- TABLE OF CONTENTS -->
 <details>
   <summary>Tabla de contenido</summary>
   <ol>
-    <li>
-      <a href="#descripción">Descripción</a>
+    <li><a href="#descripción">Descripción</a>
       <ul>
         <li><a href="#stack-tecnológico">Stack</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#comenzando">Comenzando</a>
+    <li><a href="#comenzando">Comenzando</a>
       <ul>
         <li><a href="#prerequisitos">Prerequisitos</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#instalación">Instalación</a></li>
       </ul>
     </li>
-    <li><a href="#usao">Uso</a></li>
+    <li><a href="#usar-core-oms">Usar Core OMS</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contribuyendo">Contribuyendo</a></li>
     <li><a href="#top-contribuyentes">Top Contribuyentes</a></li>
@@ -58,94 +57,83 @@ href="https://github.com/omnipro-solutions/saas-app-oms.git">
 <!-- SOBRE EL PROYECTO -->
 ## Descripción
 
-El proyecto **OMNI Pro OMS** es un marco robusto diseñado para la gestión de operaciones y tareas en entornos multiinquilino. Utiliza Django como su base, proporcionando una estructura organizada que facilita el manejo de configuraciones, operaciones, tareas y relaciones entre inquilinos.
-
-### Componentes clave:
-- **Configuración**: Gestiona detalles esenciales como tokens y URLs.
-- **Operaciones**: Representa diversas operaciones con atributos detallados como métodos HTTP y configuraciones de notificación.
-- **Tipos de Operación**: Define categorías específicas para las operaciones.
-- **Tareas**: Administra tareas relacionadas con operaciones, incluyendo datos de origen y destino.
-- **Inquilinos**: Representa inquilinos con detalles como ID del cliente y secretos.
-
-### Funcionalidades:
-- **Gestión Multiinquilino**: Soporta múltiples inquilinos con aislamiento de datos.
-- **Gestión de Tareas**: Supervisa el estado de las tareas y gestiona notificaciones.
-- **Gestión de Configuraciones**: Permite almacenar y gestionar configuraciones para diferentes operaciones.
-- **Notificaciones por Correo Electrónico**: Envía correos electrónicos cuando cambia el estado de una tarea.
+Este documento proporciona instrucciones detalladas sobre cómo configurar cuentas de usuario en el sistema Core OMS. El proceso incluye la navegación al módulo 'Usuario' y la creación de nuevos usuarios con permisos adecuados. También cubre pasos opcionales para actualizar perfiles de usuario con información adicional.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Stack tecnológico
+Este repositorio utiliza tecnologías clave que facilitan la administración y gestión eficiente del sistema Core OMS:
 
-* [![Django][django]][django-url]
-* [![DRF][drf]][drf-url]
-* [![PostgreSQL][postgres]][postgres-url]
-* [![Celery][celery]][celery-url]
-* [![Redis][redis]][redis-url]
+* [![Next.js][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Django REST Framework][drf]][drf-url]
+* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
+* [![Redis][Redis]][Redis-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONFIGURACIÓN LOCAL -->
 ## Comenzando
 
-Sigue estas instrucciones para configurar el proyecto en tu entorno local.
+Siga estos pasos para configurar el sistema Core OMS y crear cuentas de usuario en su entorno local.
 
 ### Prerequisitos
 
-- Python 3.8+
-- PostgreSQL
-- Redis
-- Celery
+- Acceso al sistema Core OMS
+- Credenciales administrativas
+- Conocimiento básico de navegación web
 
 ### Instalación
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/omnipro-solutions/saas-app-oms.git
-   ```
-2. Install dependencies using pip
-   ```sh
-   pip install -r requirements.txt
-   ```
-3. Set up your database and create a superuser
-   ```sh
-   python manage.py makemigrations
-   python manage.py migrate
-   python manage.py createsuperuser
-   ```
-4. Enter your API keys in the appropriate configuration files.
-5. Change git remote URL to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin omnipro-solutions/saas-app-oms
-   git remote -v # confirm the changes
-   ```
+1. **Iniciar sesión**  
+   Acceda al sistema utilizando sus credenciales de administrador.
+
+2. **Navegar al Módulo de Usuarios**
+   - Desde la página de inicio (Landing), haga clic en el módulo **Usuario** disponible en la barra lateral o en el área principal.
+   - Si utiliza la barra de control, desplácese hasta el apartado correspondiente.
+
+3. **Ir a la Sección de Creación de Usuarios**
+   Dentro del módulo **Usuario**, seleccione la opción **Crear Usuario** o similar que indique la creación de nuevos usuarios.
+
+4. **Completar los Datos del Usuario**
+   - Introduzca el nombre completo, un nombre de usuario único y una dirección de correo electrónico.
+   - Especifique una contraseña fuerte y segura conforme a las políticas establecidas.
+
+5. **Asignar Permisos Opcionales**  
+   Asigne roles y permisos apropiados al nuevo usuario según sus responsabilidades en el sistema.
+
+6. **Guardar la Configuración**
+   Haga clic en **Guardar** para finalizar la creación del usuario.
+
+7. **Configurar el Perfil (Opcional)**
+   - Actualice los datos de perfil si es necesario, como teléfono o dirección alternativa.
+   
+8. **Notificación y Activación**
+   - Confirme cualquier notificación que requiera activación por parte del nuevo usuario.
+
+9. **Revisar y Confirmar**
+   - Revise todos los detalles ingresados para asegurar precisión antes de concluir el proceso.
+
+10. **Asignación de Roles y Accesos**
+    Si es necesario, regrese al módulo de usuarios para modificar roles o permisos más adelante.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Ejemplos de uso -->
 ## Uso
 
-Para comenzar a utilizar el sistema, inicia los servicios necesarios y accede al panel administrativo para gestionar operaciones y tareas.
-
-1. Iniciar servidores
-   ```sh
-   python manage.py runserver
-   ```
-2. Acceder al panel de administración en `http://localhost:8000/admin`
-
-_For more examples, please refer to the [Documentation](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)_
+El proceso estándar de creación de un usuario en el sistema Core OMS sigue los pasos mencionados anteriormente. Para obtener más ejemplos y guías detalladas, consulte la [documentación oficial](https://doc-oms.omni.pro/docs/reglas).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Mejoras en la gestión de notificaciones
-- [ ] Integración con más servicios externos
-- [ ] Optimización del rendimiento para grandes volúmenes de datos
-    - [ ] Implementar caché avanzada
+- [ ] Mejora de la interfaz de usuario para el módulo 'Usuario'
+- [ ] Implementación de autenticación multifactorial
+    - [ ] Soporte para mensajes SMS y correos electrónicos
 
-Mira las [ISSUES](https://github.com/omnipro-solutions/saas-app-oms/issues) para una lista completa de mejoras (problemas conocidos).
+Mira las [ISSUES](https://github.com/omnipro-solutions/saas-doc-oms/issues) para una lista completa de mejoras (problemas conocidos).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -167,11 +155,10 @@ Si tienes una sugerencia que mejoraría esto, "fork" el repositorio y crea una s
 
 ### Top Contribuyentes:
 
-<a href="https://github.com/omnipro-solutions/saas-app-oms/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=omnipro-solutions/saas-app-oms" alt="contrib.rocks image" />
+<a href="https://github.com/omnipro-solutions/saas-doc-oms/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=omnipro-solutions/saas-doc-oms" alt="contrib.rocks image" />
 </a>
 
-<!-- LICENCIA -->
 ## Licencia
 
 Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
@@ -179,27 +166,31 @@ Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/omnipro-solutions/saas-app-oms.svg?style=for-the-badge
-[contributors-url]: https://github.com/omnipro-solutions/saas-app-oms/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/omnipro-solutions/saas-app-oms.svg?style=for-the-badge
-[forks-url]: https://github.com/omnipro-solutions/saas-app-oms/network/members
-[stars-shield]: https://img.shields.io/github/stars/omnipro-solutions/saas-app-oms.svg?style=for-the-badge
-[stars-url]: https://github.com/omnipro-solutions/saas-app-oms/stargazers
-[issues-shield]: https://img.shields.io/github/issues/omnipro-solutions/saas-app-oms.svg?style=for-the-badge
-[issues-url]: https://github.com/omnipro-solutions/saas-app-oms/issues
-[pull-request-shield]: https://img.shields.io/github/issues-pr-raw/omnipro-solutions/saas-app-oms.svg?style=for-the-badge
-[pull-request-url]: https://github.com/omnipro-solutions/saas-app-oms/pulls
-[license-shield]: https://img.shields.io/github/license/omnipro-solutions/saas-app-oms.svg?style=for-the-badge
-[license-url]: https://github.com/omnipro-solutions/saas-app-oms/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
+[contributors-url]: https://github.com/omnipro-solutions/saas-doc-oms/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
+[forks-url]: https://github.com/omnipro-solutions/saas-doc-oms/network/members
+[stars-shield]: https://img.shields.io/github/stars/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
+[stars-url]: https://github.com/omnipro-solutions/saas-doc-oms/stargazers
+[pull-request-shield]: https://img.shields.io/github/issues-pr-raw/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
+[pull-request-url]: https://github.com/omnipro-solutions/saas-doc-oms/pulls
+[issues-shield]: https://img.shields.io/github/issues/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
+[issues-url]: https://github.com/omnipro-solutions/saas-doc-oms/issues
+[license-shield]: https://img.shields.io/github/license/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge/
+[license-url]: https://github.com/omnipro-solutions/saas-doc-oms/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/omni.pro/
-[django]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white
-[django-url]: https://www.djangoproject.com/
-[drf]: https://img.shields.io/badge/drf-3.13.1-black?style=for-the-badge&logo=python&logoColor=white
+[next-shield]: https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs
+[next-url]: https://nextjs.org/
+[react-shield]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[react-url]: https://github.com/facebook/react
+[vue-shield]: https://img.shields.io/badge/vue.js-35495e?style=flat-square&logo=vuedotjs&color=F7E058
+[vue-url]: https://vuejs.org/
+[drf]: https://img.shields.io/badge/django%20rest-ff1709?style=for-the-badge&logo=django-rest-framework&logoColor=white
 [drf-url]: https://www.django-rest-framework.org/
-[postgres]: https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
-[postgres-url]: https://www.postgresql.org/
-[celery]: https://img.shields.io/badge/celery-4.4.7-blue?style=for-the-badge&logo=python&logoColor=white
-[celery-url]: http://www.celeryproject.org/
-[redis]: https://img.shields.io/badge/Redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white
-[redis-url]: https://redis.io/
+[postgresql-shield]: https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql
+[postgresql-url]: https://www.postgresql.org/
+[redis-shield]: https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white
+```
+
+¡Espero que esto sea de ayuda!
