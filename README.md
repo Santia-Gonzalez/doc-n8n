@@ -1,6 +1,3 @@
-Aquí tienes el contenido del README actualizado con los enlaces de las insignias corregidos y sin añadir texto adicional:
-
-```markdown
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![PR][pull-request-shield]][pull-request-url]
@@ -191,6 +188,3 @@ Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
 [postgresql-shield]: https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql
 [postgresql-url]: https://www.postgresql.org/
 [redis-shield]: https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white
-```
-
-¡Espero que esto sea de ayuda!
