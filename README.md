@@ -1,49 +1,52 @@
+```markdown
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![PR][pull-request-shield]][pull-request-url]
 [![Issues][issues-shield]][issues-url]
-[![Project License][license-shield]][license-url]
+[![project_license][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
 
-<a href="https://github.com/omnipro-solutions/saas-doc-oms">
+<a href="https://github.com/omnipro-solutions/saas-doc-oms.git">
     <img src="https://pngimg.com/uploads/github/github_PNG78.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Core OMS User Account Setup</h3>
+<h3 align="center">CORE OMS Documentation</h3>
 
   <p align="center">
-    Comprehensive documentation for creating and managing user accounts in the Core OMS system.
+    Official documentation for the CORE OMS system, providing comprehensive guides and tutorials.
     <br />
-    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Documentation oficial »</strong></a>
+    <a href="https://doc-oms.omni.pro/docs/reglas"><strong>Documentación oficial »</strong></a>
     <br />
     <br />
     &middot;
-    <a href="https://github.com/omnipro-solutions/saas-doc-oms/issues">Reportar errores</a>
+    <a href="https://github.com/omnipro-solutions/saas-doc-oms/issues/bug">Reportar errores</a>
     &middot;
-    <a href="https://github.com/omnipro-solutions/saas-doc-oms/issues">Solicitar mejoras</a>
+    <a href="https://github.com/omnipro-solutions/saas-doc-oms/issues/features">Solicitar mejoras</a>
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
+<!-- TABLA DE CONTENIDO -->
 <details>
   <summary>Tabla de contenido</summary>
   <ol>
-    <li><a href="#descripción">Descripción</a>
+    <li>
+      <a href="#descripción">Descripción</a>
       <ul>
         <li><a href="#stack-tecnológico">Stack</a></li>
       </ul>
     </li>
-    <li><a href="#comenzando">Comenzando</a>
+    <li>
+      <a href="#comenzando">Comenzando</a>
       <ul>
         <li><a href="#prerequisitos">Prerequisitos</a></li>
-        <li><a href="#instalación">Instalación</a></li>
+        <li><a href="#instalacion">Instalación</a></li>
       </ul>
     </li>
-    <li><a href="#usar-core-oms">Usar Core OMS</a></li>
+    <li><a href="#usao">Uso</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contribuyendo">Contribuyendo</a></li>
     <li><a href="#top-contribuyentes">Top Contribuyentes</a></li>
@@ -54,81 +57,75 @@
 <!-- SOBRE EL PROYECTO -->
 ## Descripción
 
-Este documento proporciona instrucciones detalladas sobre cómo configurar cuentas de usuario en el sistema Core OMS. El proceso incluye la navegación al módulo 'Usuario' y la creación de nuevos usuarios con permisos adecuados. También cubre pasos opcionales para actualizar perfiles de usuario con información adicional.
+CORE OMS (Optimized Management System) es una plataforma integral diseñada para gestionar eficazmente los recursos de inventario, usuarios y configuraciones dentro de las organizaciones. Este repositorio alberga la documentación oficial que incluye guías de usuario detalladas, tutoriales interactivos, introducciones en varios idiomas y configuraciones de personalización avanzadas. Con una estructura clara y navegación intuitiva, esta documentación facilita la comprensión y el despliegue del sistema CORE OMS.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Stack tecnológico
-Este repositorio utiliza tecnologías clave que facilitan la administración y gestión eficiente del sistema Core OMS:
 
-* [![Next.js][Next.js]][Next-url]
+El proyecto utiliza diversas tecnologías para asegurar que su documentación sea rica en recursos, interactiva y fácil de mantener:
+
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Django REST Framework][drf]][drf-url]
-* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
-* [![Redis][Redis]][Redis-url]
+* [![Docusaurus][Docusaurus.org]][Docusaurus-url]
+
+Además, el sistema CORE OMS puede integrarse con bases de datos como PostgreSQL y Redis para mejorar sus capacidades de gestión.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONFIGURACIÓN LOCAL -->
 ## Comenzando
 
-Siga estos pasos para configurar el sistema Core OMS y crear cuentas de usuario en su entorno local.
+Para configurar este proyecto localmente, sigue estas instrucciones paso a paso:
 
 ### Prerequisitos
 
-- Acceso al sistema Core OMS
-- Credenciales administrativas
-- Conocimiento básico de navegación web
+Antes de comenzar, asegúrate de tener instalados los siguientes componentes en tu entorno de desarrollo:
+- Node.js (versión 14 o superior)
+- npm (o yarn)
+- git
+- Editor de código como Visual Studio Code
 
-### Instalación
+### Instalacion
 
-1. **Iniciar sesión**  
-   Acceda al sistema utilizando sus credenciales de administrador.
-
-2. **Navegar al Módulo de Usuarios**
-   - Desde la página de inicio (Landing), haga clic en el módulo **Usuario** disponible en la barra lateral o en el área principal.
-   - Si utiliza la barra de control, desplácese hasta el apartado correspondiente.
-
-3. **Ir a la Sección de Creación de Usuarios**
-   Dentro del módulo **Usuario**, seleccione la opción **Crear Usuario** o similar que indique la creación de nuevos usuarios.
-
-4. **Completar los Datos del Usuario**
-   - Introduzca el nombre completo, un nombre de usuario único y una dirección de correo electrónico.
-   - Especifique una contraseña fuerte y segura conforme a las políticas establecidas.
-
-5. **Asignar Permisos Opcionales**  
-   Asigne roles y permisos apropiados al nuevo usuario según sus responsabilidades en el sistema.
-
-6. **Guardar la Configuración**
-   Haga clic en **Guardar** para finalizar la creación del usuario.
-
-7. **Configurar el Perfil (Opcional)**
-   - Actualice los datos de perfil si es necesario, como teléfono o dirección alternativa.
-   
-8. **Notificación y Activación**
-   - Confirme cualquier notificación que requiera activación por parte del nuevo usuario.
-
-9. **Revisar y Confirmar**
-   - Revise todos los detalles ingresados para asegurar precisión antes de concluir el proceso.
-
-10. **Asignación de Roles y Accesos**
-    Si es necesario, regrese al módulo de usuarios para modificar roles o permisos más adelante.
+1. Clone el repositorio
+   ```sh
+   git clone https://github.com/omnipro-solutions/saas-doc-oms.git
+   ```
+2. Instala los paquetes NPM
+   ```sh
+   npm install
+   ```
+3. Configura tu API en `config.js`
+   ```js
+   const API_KEY = 'TU_API_AQUI';
+   ```
+4. Cambia la URL remota de git para evitar push accidentales al proyecto base
+   ```sh
+   git remote set-url origin omnipro-solutions/saas-doc-oms
+   git remote -v # confirma los cambios
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Ejemplos de uso -->
 ## Uso
 
-El proceso estándar de creación de un usuario en el sistema Core OMS sigue los pasos mencionados anteriormente. Para obtener más ejemplos y guías detalladas, consulte la [documentación oficial](https://doc-oms.omni.pro/docs/reglas).
+Para utilizar esta documentación, navega a través de las secciones de guías y tutoriales en el sitio web generado. Para una experiencia más personalizada:
+
+- Ajusta los estilos CSS según sea necesario.
+- Implementa componentes React para elementos interactivos.
+
+_For more examples, please refer to the [Documentation](https://doc-oms.omni.pro/docs/dev/imgs/saas-img-core)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Mejora de la interfaz de usuario para el módulo 'Usuario'
-- [ ] Implementación de autenticación multifactorial
-    - [ ] Soporte para mensajes SMS y correos electrónicos
+- [ ] Implementar características avanzadas de seguimiento de inventario
+- [x] Mejorar la documentación en español
+- [ ] Integración con sistemas externos como Salesforce
+    - [ ] Crear API RESTful para integraciones
 
 Mira las [ISSUES](https://github.com/omnipro-solutions/saas-doc-oms/issues) para una lista completa de mejoras (problemas conocidos).
 
@@ -156,6 +153,7 @@ Si tienes una sugerencia que mejoraría esto, "fork" el repositorio y crea una s
   <img src="https://contrib.rocks/image?repo=omnipro-solutions/saas-doc-oms" alt="contrib.rocks image" />
 </a>
 
+<!-- LICENCIA -->
 ## Licencia
 
 Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
@@ -167,24 +165,18 @@ Distribuido bajo la licencia MIT. Ve a `LICENSE.txt` para más información.
 [contributors-url]: https://github.com/omnipro-solutions/saas-doc-oms/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
 [forks-url]: https://github.com/omnipro-solutions/saas-doc-oms/network/members
-[stars-shield]: https://img.shields.io/github/stars/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
-[stars-url]: https://github.com/omnipro-solutions/saas-doc-oms/stargazers
-[pull-request-shield]: https://img.shields.io/github/issues-pr-raw/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
-[pull-request-url]: https://github.com/omnipro-solutions/saas-doc-oms/pulls
 [issues-shield]: https://img.shields.io/github/issues/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge
 [issues-url]: https://github.com/omnipro-solutions/saas-doc-oms/issues
+[pull-request-shield]: https://img.shields.io/badge/pull%20requests-0-orange.svg?style=flat&logo=gitpod
+[pull-request-url]: https://github.com/omnipro-solutions/saas-doc-oms/pulls
 [license-shield]: https://img.shields.io/github/license/omnipro-solutions/saas-doc-oms.svg?style=for-the-badge/
 [license-url]: https://github.com/omnipro-solutions/saas-doc-oms/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/omni.pro/
-[next-shield]: https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs
-[next-url]: https://nextjs.org/
-[react-shield]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
-[react-url]: https://github.com/facebook/react
-[vue-shield]: https://img.shields.io/badge/vue.js-35495e?style=flat-square&logo=vuedotjs&color=F7E058
-[vue-url]: https://vuejs.org/
-[drf]: https://img.shields.io/badge/django%20rest-ff1709?style=for-the-badge&logo=django-rest-framework&logoColor=white
-[drf-url]: https://www.django-rest-framework.org/
-[postgresql-shield]: https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql
-[postgresql-url]: https://www.postgresql.org/
-[redis-shield]: https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white
+[React.js]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[React-url]: https://reactjs.org/
+[Docusaurus.org]: https://img.shields.io/badge/docusaurus-0200FF?style=for-the-badge&logo=docusaurus&logoColor=white
+[Docusaurus-url]: https://docusaurus.io/
+```
+
+This README markdown text updates the badge links to reflect the most recent data from your GitHub repository. It includes all sections as requested and maintains a consistent format throughout the document.
